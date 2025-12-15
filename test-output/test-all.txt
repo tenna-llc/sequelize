@@ -1,0 +1,1660 @@
+
+> sequelize@0.0.0-development test-unit
+> mocha --globals setImmediate,clearImmediate --ui tdd --exit --check-leaks --colors -t 30000 --reporter spec "test/unit/**/*.js"
+
+Mon, 15 Dec 2025 15:47:05 GMT sequelize deprecated String based operators are now deprecated. Please use Symbol based operators for better security, read more at http://docs.sequelizejs.com/manual/tutorial/querying.html#operators at lib\sequelize.js:247:13
+(sequelize) Warning: PostgreSQL does not support BLOB (BYTEA) with options. Plain `BYTEA` will be used instead., '
+>> Check:', http://www.postgresql.org/docs/9.4/static/datatype.html
+
+[0m[0m
+(node:27020) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[32m  √[0m[90m include (left outer join)[0m
+[32m  √[0m[90m include (subQuery alias)[0m
+[32m  √[0m[90m properly stringify IN values as per field definition[0m
+[0m  [POSTGRES] belongsTo[0m
+  [32m  √[0m[90m should throw an AssociationError when two associations have the same alias[0m
+
+[0m  [POSTGRES] belongsToMany[0m
+  [32m  √[0m[90m should not inherit scopes from parent to join table[0m
+  [32m  √[0m[90m should not inherit validations from parent to join table[0m
+  [32m  √[0m[90m should not override custom methods with association mixin[0m
+[0m    proper syntax[0m
+    [32m  √[0m[90m throws an AssociationError if the through option is undefined, true, or null[0m
+    [32m  √[0m[90m throws an AssociationError for a self-association defined without an alias[0m
+[0m    timestamps[0m
+    [32m  √[0m[90m follows the global timestamps true option[0m
+    [32m  √[0m[90m allows me to override the global timestamps option[0m
+    [32m  √[0m[90m follows the global timestamps false option[0m
+[0m    optimizations using bulk create, destroy and update[0m
+    [32m  √[0m[90m uses one insert into statement[0m
+    [32m  √[0m[90m uses one delete from statement[0m
+[0m    foreign keys[0m
+    [32m  √[0m[90m should infer otherKey from paired BTM relationship with a through string defined[0m
+    [32m  √[0m[90m should infer otherKey from paired BTM relationship with a through model defined[0m
+[0m    pseudo associations[0m
+    [32m  √[0m[90m should setup belongsTo relations to source and target from join model with defined foreign/other keys[0m
+    [32m  √[0m[90m should setup hasOne relations to source and target from join model with defined foreign/other keys[0m
+    [32m  √[0m[90m should setup hasOne relations to source and target from join model with defined foreign/other keys[0m
+    [32m  √[0m[90m should setup belongsTo relations to source and target from join model with only foreign keys defined[0m
+    [32m  √[0m[90m should setup hasOne relations to source and target from join model with only foreign keys defined[0m
+    [32m  √[0m[90m should setup belongsTo relations to source and target from join model with no foreign keys defined[0m
+[0m    associations on the join table[0m
+    [32m  √[0m[90m should work for belongsTo associations defined before belongsToMany[0m
+    [32m  √[0m[90m should work for belongsTo associations defined after belongsToMany[0m
+[0m    self-associations[0m
+    [32m  √[0m[90m does not pair multiple self associations with different through arguments[0m
+    [32m  √[0m[90m correctly generates a foreign/other key when none are defined[0m
+    [32m  √[0m[90m works with singular and plural name for self-associations[0m
+[0m    constraints[0m
+    [32m  √[0m[90m work properly when through is a string[0m
+    [32m  √[0m[90m work properly when through is a model[0m
+(sequelize) Warning: PostgreSQL does not support INTEGER with options. Plain `INTEGER` will be used instead., '
+>> Check:', http://www.postgresql.org/docs/9.4/static/datatype.html
+    [32m  √[0m[90m generate unique identifier with very long length[0m
+    [32m  √[0m[90m generate unique identifier with custom name[0m
+
+[0m  [POSTGRES] belongsTo[0m
+  [32m  √[0m[90m should not override custom methods with association mixin[0m
+
+[0m  [POSTGRES] associations[0m
+[0m    Test options.foreignKey[0m
+    [32m  √[0m[90m should not be overwritten for belongsTo[0m
+    [32m  √[0m[90m should not be overwritten for belongsToMany[0m
+    [32m  √[0m[90m should not be overwritten for hasOne[0m
+    [32m  √[0m[90m should not be overwritten for hasMany[0m
+
+[0m  [POSTGRES] hasMany[0m
+[0m    optimizations using bulk create, destroy and update[0m
+    [32m  √[0m[90m uses one update statement for addition[0m
+    [32m  √[0m[90m uses one delete from statement[0m
+[0m    mixin[0m
+    [32m  √[0m[90m should mixin association methods[0m
+    [32m  √[0m[90m should not override custom methods[0m
+[0m    get[0m
+    [32m  √[0m[90m should fetch associations for a single instance[0m
+    [32m  √[0m[90m should fetch associations for multiple source instances[0m
+
+[0m  [POSTGRES] hasOne[0m
+  [32m  √[0m[90m properly use the `as` key to generate foreign key name[0m
+  [32m  √[0m[90m should not override custom methods with association mixin[0m
+
+[0m  Sequelize[0m
+  [32m  √[0m[90m should throw error if pool:false[0m
+[0m    dialect is required[0m
+    [32m  √[0m[90m throw error when no dialect is supplied[0m
+    [32m  √[0m[90m works when dialect explicitly supplied[0m
+[0m    Instantiation with arguments[0m
+    [32m  √[0m[90m should accept four parameters (database, username, password, options)[0m
+[0m    Instantiation with a URL string[0m
+    [32m  √[0m[90m should accept username, password, host, port, and database[0m
+    [32m  √[0m[90m should work with no authentication options[0m
+    [32m  √[0m[90m should work with no authentication options and passing additional options[0m
+    [32m  √[0m[90m should use the default port when no other is specified[0m
+
+[0m  connection manager[0m
+[0m    _connect[0m
+    [32m  √[0m[90m should resolve connection on dialect connection manager[0m
+    [32m  √[0m[90m should let beforeConnect hook modify config[0m
+    [32m  √[0m[90m should call afterConnect[0m
+
+[0m  QueryGenerator[0m
+[0m    selectQuery[0m
+    [32m  √[0m[90m should generate correct query using array placeholder[0m
+[0m    whereItemQuery[0m
+    [32m  √[0m[90m should generate correct query for Symbol operators[0m
+    [32m  √[0m[90m should not parse any strings as aliases  operators[0m
+    [32m  √[0m[90m should parse set aliases strings as operators[0m
+
+[0m  [ABSTRACT][0m
+[0m    _groupJoinData[0m
+    [32m  √[0m[90m should hash second nested set correctly, when has multiple primary keys and one is a Buffer[0m
+    [32m  √[0m[90m should hash second nested set correctly, when primary is a Buffer[0m
+    [32m  √[0m[90m should hash parents correctly, when has multiple primary keys and one is a Buffer[0m
+    [32m  √[0m[90m should hash parents correctly, when primary key is a Buffer[0m
+    [32m  √[0m[90m should hash nested correctly, when primary key is a Buffer[0m
+    [32m  √[0m[90m should hash nested correctly, when has multiple primary keys and one is a Buffer[0m
+
+[0m  [POSTGRES Specific] QueryGenerator[0m
+[0m    arithmeticQuery[0m
+    [32m  √[0m[90m Should use the plus operator[0m
+    [32m  √[0m[90m Should use the plus operator with where clause[0m
+    [32m  √[0m[90m Should use the plus operator without returning clause[0m
+    [32m  √[0m[90m Should use the minus operator[0m
+    [32m  √[0m[90m Should use the minus operator with negative value[0m
+    [32m  √[0m[90m Should use the minus operator with where clause[0m
+    [32m  √[0m[90m Should use the minus operator without returning clause[0m
+[0m    attributesToSQL[0m
+    [32m  √[0m[90m Postgres correctly returns [object Object] for [{"id":"INTEGER"}][0m
+    [32m  √[0m[90m Postgres correctly returns [object Object] for [{"id":"INTEGER","foo":"VARCHAR(255)"}][0m
+    [32m  √[0m[90m Postgres correctly returns [object Object] for [{"id":{"type":"INTEGER"}}][0m
+    [32m  √[0m[90m Postgres correctly returns [object Object] for [{"id":{"type":"INTEGER","allowNull":false}}][0m
+    [32m  √[0m[90m Postgres correctly returns [object Object] for [{"id":{"type":"INTEGER","allowNull":true}}][0m
+    [32m  √[0m[90m Postgres correctly returns [object Object] for [{"id":{"type":"INTEGER","primaryKey":true,"autoIncrement":true}}][0m
+    [32m  √[0m[90m Postgres correctly returns [object Object] for [{"id":{"type":"INTEGER","defaultValue":0}}][0m
+    [32m  √[0m[90m Postgres correctly returns [object Object] for [{"id":{"type":"INTEGER","unique":true}}][0m
+    [32m  √[0m[90m Postgres correctly returns [object Object] for [{"id":{"type":"INTEGER","references":{"model":"Bar"}}}][0m
+    [32m  √[0m[90m Postgres correctly returns [object Object] for [{"id":{"type":"INTEGER","references":{"model":"Bar","key":"pk"}}}][0m
+    [32m  √[0m[90m Postgres correctly returns [object Object] for [{"id":{"type":"INTEGER","references":{"model":"Bar"},"onDelete":"CASCADE"}}][0m
+    [32m  √[0m[90m Postgres correctly returns [object Object] for [{"id":{"type":"INTEGER","references":{"model":"Bar"},"onUpdate":"RESTRICT"}}][0m
+    [32m  √[0m[90m Postgres correctly returns [object Object] for [{"id":{"type":"INTEGER","allowNull":false,"defaultValue":1,"references":{"model":"Bar"},"onDelete":"CASCADE","onUpdate":"RESTRICT"}}][0m
+    [32m  √[0m[90m Postgres correctly returns [object Object] for [{"id":{"type":"INTEGER","references":{"model":"Bar"}}}][0m
+    [32m  √[0m[90m Postgres correctly returns [object Object] for [{"id":{"type":"INTEGER","references":{"model":"Bar","key":"pk"}}}][0m
+    [32m  √[0m[90m Postgres correctly returns [object Object] for [{"id":{"type":"INTEGER","references":{"model":"Bar"},"onDelete":"CASCADE"}}][0m
+    [32m  √[0m[90m Postgres correctly returns [object Object] for [{"id":{"type":"INTEGER","references":{"model":"Bar"},"onUpdate":"RESTRICT"}}][0m
+    [32m  √[0m[90m Postgres correctly returns [object Object] for [{"id":{"type":"INTEGER","allowNull":false,"defaultValue":1,"references":{"model":"Bar"},"onDelete":"CASCADE","onUpdate":"RESTRICT"}}][0m
+[0m    createTableQuery[0m
+    [32m  √[0m[90m Postgres correctly returns CREATE TABLE IF NOT EXISTS "myTable" ("int" INTEGER, "bigint" BIGINT, "smallint" SMALLINT); for ["myTable",{"int":"INTEGER","bigint":"BIGINT","smallint":"SMALLINT"}][0m
+    [32m  √[0m[90m Postgres correctly returns CREATE TABLE IF NOT EXISTS "myTable" ("serial"  SERIAL, "bigserial"  BIGSERIAL, "smallserial"  SMALLSERIAL); for ["myTable",{"serial":"INTEGER SERIAL","bigserial":"BIGINT SERIAL","smallserial":"SMALLINT SERIAL"}][0m
+    [32m  √[0m[90m Postgres correctly returns CREATE TABLE IF NOT EXISTS "myTable" ("title" VARCHAR(255), "name" VARCHAR(255)); for ["myTable",{"title":"VARCHAR(255)","name":"VARCHAR(255)"}][0m
+    [32m  √[0m[90m Postgres correctly returns CREATE TABLE IF NOT EXISTS "myTable" ("data" BYTEA); for ["myTable",{"data":"BYTEA"}][0m
+    [32m  √[0m[90m Postgres correctly returns CREATE TABLE IF NOT EXISTS "myTable" ("data" BYTEA); for ["myTable",{"data":"BYTEA"}][0m
+    [32m  √[0m[90m Postgres correctly returns CREATE TABLE IF NOT EXISTS "mySchema"."myTable" ("title" VARCHAR(255), "name" VARCHAR(255)); for [{"tableName":"myTable","schema":"mySchema"},{"title":"VARCHAR(255)","name":"VARCHAR(255)"}][0m
+    [32m  √[0m[90m Postgres correctly returns CREATE TABLE IF NOT EXISTS "myTable" ("title" "public"."enum_myTable_title", "name" VARCHAR(255)); for ["myTable",{"title":"ENUM(\"A\", \"B\", \"C\")","name":"VARCHAR(255)"}][0m
+    [32m  √[0m[90m Postgres correctly returns CREATE TABLE IF NOT EXISTS "myTable" ("title" VARCHAR(255), "name" VARCHAR(255), "id" INTEGER , PRIMARY KEY ("id")); for ["myTable",{"title":"VARCHAR(255)","name":"VARCHAR(255)","id":"INTEGER PRIMARY KEY"}][0m
+    [32m  √[0m[90m Postgres correctly returns CREATE TABLE IF NOT EXISTS "myTable" ("title" VARCHAR(255), "name" VARCHAR(255), "otherId" INTEGER REFERENCES "otherTable" ("id") ON DELETE CASCADE ON UPDATE NO ACTION); for ["myTable",{"title":"VARCHAR(255)","name":"VARCHAR(255)","otherId":"INTEGER REFERENCES \"otherTable\" (\"id\") ON DELETE CASCADE ON UPDATE NO ACTION"}][0m
+    [32m  √[0m[90m Postgres correctly returns CREATE TABLE IF NOT EXISTS myTable (title VARCHAR(255), name VARCHAR(255)); for ["myTable",{"title":"VARCHAR(255)","name":"VARCHAR(255)"}][0m
+    [32m  √[0m[90m Postgres correctly returns CREATE TABLE IF NOT EXISTS mySchema.myTable (title VARCHAR(255), name VARCHAR(255)); for [{"schema":"mySchema","tableName":"myTable"},{"title":"VARCHAR(255)","name":"VARCHAR(255)"}][0m
+    [32m  √[0m[90m Postgres correctly returns CREATE TABLE IF NOT EXISTS myTable (title public."enum_myTable_title", name VARCHAR(255)); for ["myTable",{"title":"ENUM(\"A\", \"B\", \"C\")","name":"VARCHAR(255)"}][0m
+    [32m  √[0m[90m Postgres correctly returns CREATE TABLE IF NOT EXISTS myTable (title VARCHAR(255), name VARCHAR(255), id INTEGER , PRIMARY KEY (id)); for ["myTable",{"title":"VARCHAR(255)","name":"VARCHAR(255)","id":"INTEGER PRIMARY KEY"}][0m
+    [32m  √[0m[90m Postgres correctly returns CREATE TABLE IF NOT EXISTS myTable (title VARCHAR(255), name VARCHAR(255), otherId INTEGER REFERENCES otherTable (id) ON DELETE CASCADE ON UPDATE NO ACTION); for ["myTable",{"title":"VARCHAR(255)","name":"VARCHAR(255)","otherId":"INTEGER REFERENCES otherTable (id) ON DELETE CASCADE ON UPDATE NO ACTION"}][0m
+[0m    dropTableQuery[0m
+    [32m  √[0m[90m Postgres correctly returns DROP TABLE IF EXISTS "myTable"; for ["myTable"][0m
+    [32m  √[0m[90m Postgres correctly returns DROP TABLE IF EXISTS "mySchema"."myTable"; for [{"tableName":"myTable","schema":"mySchema"}][0m
+    [32m  √[0m[90m Postgres correctly returns DROP TABLE IF EXISTS "myTable" CASCADE; for ["myTable",{"cascade":true}][0m
+    [32m  √[0m[90m Postgres correctly returns DROP TABLE IF EXISTS "mySchema"."myTable" CASCADE; for [{"tableName":"myTable","schema":"mySchema"},{"cascade":true}][0m
+    [32m  √[0m[90m Postgres correctly returns DROP TABLE IF EXISTS myTable; for ["myTable"][0m
+    [32m  √[0m[90m Postgres correctly returns DROP TABLE IF EXISTS mySchema.myTable; for [{"tableName":"myTable","schema":"mySchema"}][0m
+    [32m  √[0m[90m Postgres correctly returns DROP TABLE IF EXISTS myTable CASCADE; for ["myTable",{"cascade":true}][0m
+    [32m  √[0m[90m Postgres correctly returns DROP TABLE IF EXISTS mySchema.myTable CASCADE; for [{"tableName":"myTable","schema":"mySchema"},{"cascade":true}][0m
+[0m    changeColumnQuery[0m
+    [32m  √[0m[90m Postgres correctly returns ALTER TABLE "myTable" ALTER COLUMN "col_1" SET NOT NULL;ALTER TABLE "myTable" ALTER COLUMN "col_1" DROP DEFAULT;CREATE TYPE "public"."enum_myTable_col_1" AS ENUM('value 1', 'value 2');ALTER TABLE "myTable" ALTER COLUMN "col_1" TYPE "public"."enum_myTable_col_1" USING ("col_1"::"public"."enum_myTable_col_1");ALTER TABLE "myTable" ALTER COLUMN "col_2" SET NOT NULL;ALTER TABLE "myTable" ALTER COLUMN "col_2" DROP DEFAULT;CREATE TYPE "public"."enum_myTable_col_2" AS ENUM('value 3', 'value 4');ALTER TABLE "myTable" ALTER COLUMN "col_2" TYPE "public"."enum_myTable_col_2" USING ("col_2"::"public"."enum_myTable_col_2"); for ["myTable",{"col_1":"ENUM('value 1', 'value 2') NOT NULL","col_2":"ENUM('value 3', 'value 4') NOT NULL"}][0m
+[0m    selectQuery[0m
+    [32m  √[0m[90m Postgres correctly returns SELECT * FROM "myTable"; for ["myTable"][0m
+    [32m  √[0m[90m Postgres correctly returns SELECT "id", "name" FROM "myTable"; for ["myTable",{"attributes":["id","name"]}][0m
+    [32m  √[0m[90m Postgres correctly returns SELECT * FROM "myTable" WHERE "myTable"."id" = 2; for ["myTable",{"where":{"id":2}}][0m
+    [32m  √[0m[90m Postgres correctly returns SELECT * FROM "myTable" WHERE "myTable"."name" = 'foo'; for ["myTable",{"where":{"name":"foo"}}][0m
+    [32m  √[0m[90m Postgres correctly returns SELECT * FROM "myTable" WHERE "myTable"."name" = 'foo'';DROP TABLE myTable;'; for ["myTable",{"where":{"name":"foo';DROP TABLE myTable;"}}][0m
+    [32m  √[0m[90m Postgres correctly returns SELECT * FROM "myTable" WHERE "myTable"."id" = 2; for ["myTable",{"where":2}][0m
+    [32m  √[0m[90m Postgres correctly returns SELECT * FROM "myTable" ORDER BY "id"; for ["myTable",{"order":["id"]}][0m
+    [32m  √[0m[90m Postgres correctly returns SELECT * FROM "myTable" ORDER BY "id", "DESC"; for ["myTable",{"order":["id","DESC"]}][0m
+    [32m  √[0m[90m Postgres correctly returns SELECT * FROM "myTable" ORDER BY "myTable"."id"; for ["myTable",{"order":["myTable.id"]}][0m
+    [32m  √[0m[90m Postgres correctly returns SELECT * FROM "myTable" ORDER BY "myTable"."id" DESC; for ["myTable",{"order":[["myTable.id","DESC"]]}][0m
+    [32m  √[0m[90m Postgres correctly returns SELECT * FROM "myTable" AS "myTable" ORDER BY "myTable"."id" DESC; for ["myTable",{"order":[["id","DESC"]]},null][0m
+    [32m  √[0m[90m Postgres correctly returns SELECT * FROM "myTable" AS "myTable" ORDER BY "myTable"."id" DESC, "myTable"."name"; for ["myTable",{"order":[["id","DESC"],["name"]]},null][0m
+    [32m  √[0m[90m uses limit 0[0m
+    [32m  √[0m[90m uses offset 0[0m
+    [32m  √[0m[90m sequelize.where with .fn as attribute and default comparator[0m
+    [32m  √[0m[90m sequelize.where with .fn as attribute and LIKE comparator[0m
+    [32m  √[0m[90m functions can take functions as arguments[0m
+    [32m  √[0m[90m functions can take all types as arguments[0m
+    [32m  √[0m[90m Combination of sequelize.fn, sequelize.col and { in: ... }[0m
+    [32m  √[0m[90m single string argument should be quoted[0m
+    [32m  √[0m[90m Postgres correctly returns SELECT * FROM "myTable" GROUP BY "name"; for ["myTable",{"group":["name"]}][0m
+    [32m  √[0m[90m functions work for group by[0m
+    [32m  √[0m[90m It is possible to mix sequelize.fn and string arguments to group by[0m
+    [32m  √[0m[90m Postgres correctly returns SELECT * FROM "myTable" GROUP BY "name", "title"; for ["myTable",{"group":["name","title"]}][0m
+    [32m  √[0m[90m Postgres correctly returns SELECT * FROM "myTable" LIMIT 10; for ["myTable",{"limit":10}][0m
+    [32m  √[0m[90m Postgres correctly returns SELECT * FROM "myTable" LIMIT 10 OFFSET 2; for ["myTable",{"limit":10,"offset":2}][0m
+    [32m  √[0m[90m uses offset even if no limit was passed[0m
+    [32m  √[0m[90m Postgres correctly returns SELECT * FROM "mySchema"."myTable"; for [{"tableName":"myTable","schema":"mySchema"}][0m
+    [32m  √[0m[90m Postgres correctly returns SELECT * FROM "mySchema"."myTable" WHERE "mySchema"."myTable"."name" = 'foo'';DROP TABLE mySchema.myTable;'; for [{"tableName":"myTable","schema":"mySchema"},{"where":{"name":"foo';DROP TABLE mySchema.myTable;"}}][0m
+    [32m  √[0m[90m buffer as where argument[0m
+    [32m  √[0m[90m string in array should escape ' as ''[0m
+    [32m  √[0m[90m Postgres correctly returns SELECT * FROM myTable; for ["myTable"][0m
+    [32m  √[0m[90m Postgres correctly returns SELECT id, name FROM myTable; for ["myTable",{"attributes":["id","name"]}][0m
+    [32m  √[0m[90m Postgres correctly returns SELECT * FROM myTable WHERE myTable.id = 2; for ["myTable",{"where":{"id":2}}][0m
+    [32m  √[0m[90m Postgres correctly returns SELECT * FROM myTable WHERE myTable.name = 'foo'; for ["myTable",{"where":{"name":"foo"}}][0m
+    [32m  √[0m[90m Postgres correctly returns SELECT * FROM myTable WHERE myTable.name = 'foo'';DROP TABLE myTable;'; for ["myTable",{"where":{"name":"foo';DROP TABLE myTable;"}}][0m
+    [32m  √[0m[90m Postgres correctly returns SELECT * FROM myTable WHERE myTable.id = 2; for ["myTable",{"where":2}][0m
+    [32m  √[0m[90m Postgres correctly returns SELECT * FROM myTable ORDER BY id DESC; for ["myTable",{"order":["id DESC"]}][0m
+    [32m  √[0m[90m Postgres correctly returns SELECT * FROM myTable GROUP BY name; for ["myTable",{"group":"name"}][0m
+    [32m  √[0m[90m Postgres correctly returns SELECT * FROM myTable GROUP BY name; for ["myTable",{"group":["name"]}][0m
+    [32m  √[0m[90m Postgres correctly returns SELECT * FROM myTable GROUP BY name, title; for ["myTable",{"group":["name","title"]}][0m
+    [32m  √[0m[90m Postgres correctly returns SELECT * FROM myTable LIMIT 10; for ["myTable",{"limit":10}][0m
+    [32m  √[0m[90m Postgres correctly returns SELECT * FROM myTable LIMIT 10 OFFSET 2; for ["myTable",{"limit":10,"offset":2}][0m
+    [32m  √[0m[90m uses offset even if no limit was passed[0m
+    [32m  √[0m[90m Postgres correctly returns SELECT * FROM mySchema.myTable; for [{"tableName":"myTable","schema":"mySchema"}][0m
+    [32m  √[0m[90m Postgres correctly returns SELECT * FROM mySchema.myTable WHERE mySchema.myTable.name = 'foo'';DROP TABLE mySchema.myTable;'; for [{"tableName":"myTable","schema":"mySchema"},{"where":{"name":"foo';DROP TABLE mySchema.myTable;"}}][0m
+    [32m  √[0m[90m use != if ne !== null[0m
+    [32m  √[0m[90m use IS NOT if ne === null[0m
+    [32m  √[0m[90m use IS NOT if not === BOOLEAN[0m
+    [32m  √[0m[90m use != if not !== BOOLEAN[0m
+    [32m  √[0m[90m Regular Expression in where clause[0m
+    [32m  √[0m[90m Regular Expression negation in where clause[0m
+    [32m  √[0m[90m Case-insensitive Regular Expression in where clause[0m
+    [32m  √[0m[90m Case-insensitive Regular Expression negation in where clause[0m
+[0m    insertQuery[0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "myTable" DEFAULT VALUES; for ["myTable",{}][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "myTable" ("name") VALUES ('foo'); for ["myTable",{"name":"foo"}][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "myTable" ("name") VALUES ('foo') ON CONFLICT DO NOTHING; for ["myTable",{"name":"foo"},{},{"ignoreDuplicates":true}][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "myTable" ("name") VALUES ('foo') RETURNING *; for ["myTable",{"name":"foo"},{},{"returning":true}][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "myTable" ("name") VALUES ('foo') ON CONFLICT DO NOTHING RETURNING *; for ["myTable",{"name":"foo"},{},{"ignoreDuplicates":true,"returning":true}][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "myTable" ("name") VALUES ('foo'';DROP TABLE myTable;'); for ["myTable",{"name":"foo';DROP TABLE myTable;"}][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "myTable" ("name","birthday") VALUES ('foo','2011-03-27 10:01:55.000 +00:00'); for ["myTable",{"name":"foo","birthday":"2011-03-27T10:01:55.000Z"}][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "myTable" ("data") VALUES (E'\\x53657175656c697a65'); for ["myTable",{"data":{"type":"Buffer","data":[83,101,113,117,101,108,105,122,101]}}][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "myTable" ("name","numbers") VALUES ('foo',ARRAY[1,2,3]); for ["myTable",{"name":"foo","numbers":[1,2,3]}][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "myTable" ("name","foo") VALUES ('foo',1); for ["myTable",{"name":"foo","foo":1}][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "myTable" ("name","nullValue") VALUES ('foo',NULL); for ["myTable",{"name":"foo","nullValue":null}][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "myTable" ("name","nullValue") VALUES ('foo',NULL); for ["myTable",{"name":"foo","nullValue":null}][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "myTable" ("name") VALUES ('foo'); for ["myTable",{"name":"foo","nullValue":null}][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "myTable" ("name") VALUES ('foo'); for ["myTable",{"name":"foo"}][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "mySchema"."myTable" ("name") VALUES ('foo'); for [{"tableName":"myTable","schema":"mySchema"},{"name":"foo"}][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "mySchema"."myTable" ("name") VALUES ('{"info":"Look ma a \" quote"}'); for [{"tableName":"myTable","schema":"mySchema"},{"name":"{\"info\":\"Look ma a \\\" quote\"}"}][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "mySchema"."myTable" ("name") VALUES ('foo'';DROP TABLE mySchema.myTable;'); for [{"tableName":"myTable","schema":"mySchema"},{"name":"foo';DROP TABLE mySchema.myTable;"}][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "myTable" ("foo") VALUES (NOW()); for ["myTable",null][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO myTable (name) VALUES ('foo'); for ["myTable",{"name":"foo"}][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO myTable (name) VALUES ('foo'';DROP TABLE myTable;'); for ["myTable",{"name":"foo';DROP TABLE myTable;"}][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO myTable (name,birthday) VALUES ('foo','2011-03-27 10:01:55.000 +00:00'); for ["myTable",{"name":"foo","birthday":"2011-03-27T10:01:55.000Z"}][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO myTable (name,numbers) VALUES ('foo',ARRAY[1,2,3]); for ["myTable",{"name":"foo","numbers":[1,2,3]}][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO myTable (name,foo) VALUES ('foo',1); for ["myTable",{"name":"foo","foo":1}][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO myTable (name,nullValue) VALUES ('foo',NULL); for ["myTable",{"name":"foo","nullValue":null}][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO myTable (name,nullValue) VALUES ('foo',NULL); for ["myTable",{"name":"foo","nullValue":null}][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO myTable (name) VALUES ('foo'); for ["myTable",{"name":"foo","nullValue":null}][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO myTable (name) VALUES ('foo'); for ["myTable",{"name":"foo"}][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO mySchema.myTable (name) VALUES ('foo'); for [{"tableName":"myTable","schema":"mySchema"},{"name":"foo"}][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO mySchema.myTable (name) VALUES ('{"info":"Look ma a \" quote"}'); for [{"tableName":"myTable","schema":"mySchema"},{"name":"{\"info\":\"Look ma a \\\" quote\"}"}][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO mySchema.myTable (name) VALUES ('foo'';DROP TABLE mySchema.myTable;'); for [{"tableName":"myTable","schema":"mySchema"},{"name":"foo';DROP TABLE mySchema.myTable;"}][0m
+[0m    bulkInsertQuery[0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "myTable" ("name") VALUES ('foo'),('bar'); for ["myTable",[{"name":"foo"},{"name":"bar"}]][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "myTable" ("name") VALUES ('foo'),('bar') ON CONFLICT DO NOTHING; for ["myTable",[{"name":"foo"},{"name":"bar"}],{"ignoreDuplicates":true}][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "myTable" ("name") VALUES ('foo'),('bar') RETURNING *; for ["myTable",[{"name":"foo"},{"name":"bar"}],{"returning":true}][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "myTable" ("name") VALUES ('foo'),('bar') ON CONFLICT DO NOTHING RETURNING *; for ["myTable",[{"name":"foo"},{"name":"bar"}],{"ignoreDuplicates":true,"returning":true}][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "myTable" ("name") VALUES ('foo'';DROP TABLE myTable;'),('bar'); for ["myTable",[{"name":"foo';DROP TABLE myTable;"},{"name":"bar"}]][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "myTable" ("name","birthday") VALUES ('foo','2011-03-27 10:01:55.000 +00:00'),('bar','2012-03-27 10:01:55.000 +00:00'); for ["myTable",[{"name":"foo","birthday":"2011-03-27T10:01:55.000Z"},{"name":"bar","birthday":"2012-03-27T10:01:55.000Z"}]][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "myTable" ("name","foo") VALUES ('foo',1),('bar',2); for ["myTable",[{"name":"foo","foo":1},{"name":"bar","foo":2}]][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "myTable" ("name","nullValue") VALUES ('foo',NULL),('bar',NULL); for ["myTable",[{"name":"foo","nullValue":null},{"name":"bar","nullValue":null}]][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "myTable" ("name","nullValue") VALUES ('foo',NULL),('bar',NULL); for ["myTable",[{"name":"foo","nullValue":null},{"name":"bar","nullValue":null}]][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "myTable" ("name","nullValue") VALUES ('foo',NULL),('bar',NULL); for ["myTable",[{"name":"foo","nullValue":null},{"name":"bar","nullValue":null}]][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "myTable" ("name","nullValue") VALUES ('foo',NULL),('bar',NULL); for ["myTable",[{"name":"foo"},{"name":"bar"}]][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "mySchema"."myTable" ("name") VALUES ('foo'),('bar'); for [{"schema":"mySchema","tableName":"myTable"},[{"name":"foo"},{"name":"bar"}]][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "mySchema"."myTable" ("name") VALUES ('{"info":"Look ma a \" quote"}'),('{"info":"Look ma another \" quote"}'); for [{"schema":"mySchema","tableName":"myTable"},[{"name":"{\"info\":\"Look ma a \\\" quote\"}"},{"name":"{\"info\":\"Look ma another \\\" quote\"}"}]][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO "mySchema"."myTable" ("name") VALUES ('foo'';DROP TABLE mySchema.myTable;'),('bar'); for [{"schema":"mySchema","tableName":"myTable"},[{"name":"foo';DROP TABLE mySchema.myTable;"},{"name":"bar"}]][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO myTable (name) VALUES ('foo'),('bar'); for ["myTable",[{"name":"foo"},{"name":"bar"}]][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO myTable (name) VALUES ('foo'';DROP TABLE myTable;'),('bar'); for ["myTable",[{"name":"foo';DROP TABLE myTable;"},{"name":"bar"}]][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO myTable (name,birthday) VALUES ('foo','2011-03-27 10:01:55.000 +00:00'),('bar','2012-03-27 10:01:55.000 +00:00'); for ["myTable",[{"name":"foo","birthday":"2011-03-27T10:01:55.000Z"},{"name":"bar","birthday":"2012-03-27T10:01:55.000Z"}]][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO myTable (name,foo) VALUES ('foo',1),('bar',2); for ["myTable",[{"name":"foo","foo":1},{"name":"bar","foo":2}]][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO myTable (name,nullValue) VALUES ('foo',NULL),('bar',NULL); for ["myTable",[{"name":"foo","nullValue":null},{"name":"bar","nullValue":null}]][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO myTable (name,nullValue) VALUES ('foo',NULL),('bar',NULL); for ["myTable",[{"name":"foo","nullValue":null},{"name":"bar","nullValue":null}]][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO myTable (name,nullValue) VALUES ('foo',NULL),('bar',NULL); for ["myTable",[{"name":"foo","nullValue":null},{"name":"bar","nullValue":null}]][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO myTable (name,nullValue) VALUES ('foo',NULL),('bar',NULL); for ["myTable",[{"name":"foo"},{"name":"bar"}]][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO mySchema.myTable (name) VALUES ('foo'),('bar'); for [{"schema":"mySchema","tableName":"myTable"},[{"name":"foo"},{"name":"bar"}]][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO mySchema.myTable (name) VALUES ('{"info":"Look ma a \" quote"}'),('{"info":"Look ma another \" quote"}'); for [{"schema":"mySchema","tableName":"myTable"},[{"name":"{\"info\":\"Look ma a \\\" quote\"}"},{"name":"{\"info\":\"Look ma another \\\" quote\"}"}]][0m
+    [32m  √[0m[90m Postgres correctly returns INSERT INTO mySchema.myTable (name) VALUES ('foo'';DROP TABLE mySchema.myTable;'),('bar'); for [{"schema":"mySchema","tableName":"myTable"},[{"name":"foo';DROP TABLE mySchema.myTable;"},{"name":"bar"}]][0m
+[0m    updateQuery[0m
+    [32m  √[0m[90m Postgres correctly returns UPDATE "myTable" SET "name"='foo',"birthday"='2011-03-27 10:01:55.000 +00:00' WHERE "id" = 2 for ["myTable",{"name":"foo","birthday":"2011-03-27T10:01:55.000Z"},{"id":2}][0m
+    [32m  √[0m[90m Postgres correctly returns UPDATE "myTable" SET "name"='foo',"birthday"='2011-03-27 10:01:55.000 +00:00' WHERE "id" = 2 for ["myTable",{"name":"foo","birthday":"2011-03-27T10:01:55.000Z"},{"id":2}][0m
+    [32m  √[0m[90m Postgres correctly returns UPDATE "myTable" SET "bar"=2 WHERE "name" = 'foo' for ["myTable",{"bar":2},{"name":"foo"}][0m
+    [32m  √[0m[90m Postgres correctly returns UPDATE "myTable" SET "bar"=2 WHERE "name" = 'foo' RETURNING * for ["myTable",{"bar":2},{"name":"foo"},{"returning":true}][0m
+    [32m  √[0m[90m Postgres correctly returns UPDATE "myTable" SET "numbers"=ARRAY[1,2,3] WHERE "name" = 'foo' for ["myTable",{"numbers":[1,2,3]},{"name":"foo"}][0m
+    [32m  √[0m[90m Postgres correctly returns UPDATE "myTable" SET "name"='foo'';DROP TABLE myTable;' WHERE "name" = 'foo' for ["myTable",{"name":"foo';DROP TABLE myTable;"},{"name":"foo"}][0m
+    [32m  √[0m[90m Postgres correctly returns UPDATE "myTable" SET "bar"=2,"nullValue"=NULL WHERE "name" = 'foo' for ["myTable",{"bar":2,"nullValue":null},{"name":"foo"}][0m
+    [32m  √[0m[90m Postgres correctly returns UPDATE "myTable" SET "bar"=2,"nullValue"=NULL WHERE "name" = 'foo' for ["myTable",{"bar":2,"nullValue":null},{"name":"foo"}][0m
+    [32m  √[0m[90m Postgres correctly returns UPDATE "myTable" SET "bar"=2 WHERE "name" = 'foo' for ["myTable",{"bar":2,"nullValue":null},{"name":"foo"}][0m
+    [32m  √[0m[90m Postgres correctly returns UPDATE "myTable" SET "bar"=2 WHERE "name" = 'foo' for ["myTable",{"bar":2},{"name":"foo"}][0m
+    [32m  √[0m[90m Postgres correctly returns UPDATE "mySchema"."myTable" SET "name"='foo',"birthday"='2011-03-27 10:01:55.000 +00:00' WHERE "id" = 2 for [{"tableName":"myTable","schema":"mySchema"},{"name":"foo","birthday":"2011-03-27T10:01:55.000Z"},{"id":2}][0m
+    [32m  √[0m[90m Postgres correctly returns UPDATE "mySchema"."myTable" SET "name"='foo'';DROP TABLE mySchema.myTable;' WHERE "name" = 'foo' for [{"tableName":"myTable","schema":"mySchema"},{"name":"foo';DROP TABLE mySchema.myTable;"},{"name":"foo"}][0m
+    [32m  √[0m[90m Postgres correctly returns UPDATE "myTable" SET "bar"=NOW() WHERE "name" = 'foo' for ["myTable",null,{"name":"foo"}][0m
+    [32m  √[0m[90m Postgres correctly returns UPDATE "myTable" SET "bar"="foo" WHERE "name" = 'foo' for ["myTable",null,{"name":"foo"}][0m
+    [32m  √[0m[90m Postgres correctly returns UPDATE myTable SET name='foo',birthday='2011-03-27 10:01:55.000 +00:00' WHERE id = 2 for ["myTable",{"name":"foo","birthday":"2011-03-27T10:01:55.000Z"},{"id":2}][0m
+    [32m  √[0m[90m Postgres correctly returns UPDATE myTable SET name='foo',birthday='2011-03-27 10:01:55.000 +00:00' WHERE id = 2 for ["myTable",{"name":"foo","birthday":"2011-03-27T10:01:55.000Z"},{"id":2}][0m
+    [32m  √[0m[90m Postgres correctly returns UPDATE myTable SET bar=2 WHERE name = 'foo' for ["myTable",{"bar":2},{"name":"foo"}][0m
+    [32m  √[0m[90m Postgres correctly returns UPDATE myTable SET numbers=ARRAY[1,2,3] WHERE name = 'foo' for ["myTable",{"numbers":[1,2,3]},{"name":"foo"}][0m
+    [32m  √[0m[90m Postgres correctly returns UPDATE myTable SET name='foo'';DROP TABLE myTable;' WHERE name = 'foo' for ["myTable",{"name":"foo';DROP TABLE myTable;"},{"name":"foo"}][0m
+    [32m  √[0m[90m Postgres correctly returns UPDATE myTable SET bar=2,nullValue=NULL WHERE name = 'foo' for ["myTable",{"bar":2,"nullValue":null},{"name":"foo"}][0m
+    [32m  √[0m[90m Postgres correctly returns UPDATE myTable SET bar=2,nullValue=NULL WHERE name = 'foo' for ["myTable",{"bar":2,"nullValue":null},{"name":"foo"}][0m
+    [32m  √[0m[90m Postgres correctly returns UPDATE myTable SET bar=2 WHERE name = 'foo' for ["myTable",{"bar":2,"nullValue":null},{"name":"foo"}][0m
+    [32m  √[0m[90m Postgres correctly returns UPDATE myTable SET bar=2 WHERE name = 'foo' for ["myTable",{"bar":2},{"name":"foo"}][0m
+    [32m  √[0m[90m Postgres correctly returns UPDATE mySchema.myTable SET name='foo',birthday='2011-03-27 10:01:55.000 +00:00' WHERE id = 2 for [{"schema":"mySchema","tableName":"myTable"},{"name":"foo","birthday":"2011-03-27T10:01:55.000Z"},{"id":2}][0m
+    [32m  √[0m[90m Postgres correctly returns UPDATE mySchema.myTable SET name='foo'';DROP TABLE mySchema.myTable;' WHERE name = 'foo' for [{"schema":"mySchema","tableName":"myTable"},{"name":"foo';DROP TABLE mySchema.myTable;"},{"name":"foo"}][0m
+[0m    removeIndexQuery[0m
+    [32m  √[0m[90m Postgres correctly returns DROP INDEX IF EXISTS "user_foo_bar" for ["User","user_foo_bar"][0m
+    [32m  √[0m[90m Postgres correctly returns DROP INDEX IF EXISTS "user_foo_bar" for ["User",["foo","bar"]][0m
+    [32m  √[0m[90m Postgres correctly returns DROP INDEX IF EXISTS "mySchema"."user_foo_bar" for ["User","mySchema.user_foo_bar"][0m
+    [32m  √[0m[90m Postgres correctly returns DROP INDEX IF EXISTS user_foo_bar for ["User","user_foo_bar"][0m
+    [32m  √[0m[90m Postgres correctly returns DROP INDEX IF EXISTS user_foo_bar for ["User",["foo","bar"]][0m
+    [32m  √[0m[90m Postgres correctly returns DROP INDEX IF EXISTS mySchema.user_foo_bar for ["User","mySchema.user_foo_bar"][0m
+[0m    startTransactionQuery[0m
+    [32m  √[0m[90m Postgres correctly returns START TRANSACTION; for [{}][0m
+    [32m  √[0m[90m Postgres correctly returns SAVEPOINT "transaction-uid"; for [{"parent":"MockTransaction","name":"transaction-uid"}][0m
+    [32m  √[0m[90m Postgres correctly returns SAVEPOINT "transaction-uid"; for [{"parent":"MockTransaction","name":"transaction-uid"}][0m
+[0m    rollbackTransactionQuery[0m
+    [32m  √[0m[90m Postgres correctly returns ROLLBACK; for [{}][0m
+    [32m  √[0m[90m Postgres correctly returns ROLLBACK TO SAVEPOINT "transaction-uid"; for [{"parent":"MockTransaction","name":"transaction-uid"}][0m
+    [32m  √[0m[90m Postgres correctly returns ROLLBACK TO SAVEPOINT "transaction-uid"; for [{"parent":"MockTransaction","name":"transaction-uid"}][0m
+[0m    createTrigger[0m
+    [32m  √[0m[90m Postgres correctly returns CREATE TRIGGER myTrigger
+	AFTER INSERT
+	ON myTable
+	
+	EXECUTE PROCEDURE myFunction(); for ["myTable","myTrigger","after",["insert"],"myFunction",[],[]][0m
+    [32m  √[0m[90m Postgres correctly returns CREATE TRIGGER myTrigger
+	BEFORE INSERT OR UPDATE
+	ON myTable
+	
+	EXECUTE PROCEDURE myFunction(bar INTEGER); for ["myTable","myTrigger","before",["insert","update"],"myFunction",[{"name":"bar","type":"INTEGER"}],[]][0m
+    [32m  √[0m[90m Postgres correctly returns CREATE TRIGGER myTrigger
+	INSTEAD OF INSERT OR UPDATE
+	ON myTable
+	
+	FOR EACH ROW
+	EXECUTE PROCEDURE myFunction(); for ["myTable","myTrigger","instead_of",["insert","update"],"myFunction",[],["FOR EACH ROW"]][0m
+    [32m  √[0m[90m Postgres correctly returns CREATE CONSTRAINT TRIGGER myTrigger
+	AFTER INSERT OR UPDATE
+	ON myTable
+	
+	FOR EACH ROW
+	EXECUTE PROCEDURE myFunction(bar INTEGER); for ["myTable","myTrigger","after_constraint",["insert","update"],"myFunction",[{"name":"bar","type":"INTEGER"}],["FOR EACH ROW"]][0m
+[0m    getForeignKeyReferenceQuery[0m
+    [32m  √[0m[90m Postgres correctly returns SELECT DISTINCT tc.constraint_name as constraint_name, tc.constraint_schema as constraint_schema, tc.constraint_catalog as constraint_catalog, tc.table_name as table_name,tc.table_schema as table_schema,tc.table_catalog as table_catalog,kcu.column_name as column_name,ccu.table_schema  AS referenced_table_schema,ccu.table_catalog  AS referenced_table_catalog,ccu.table_name  AS referenced_table_name,ccu.column_name AS referenced_column_name FROM information_schema.table_constraints AS tc JOIN information_schema.key_column_usage AS kcu ON tc.constraint_name = kcu.constraint_name JOIN information_schema.constraint_column_usage AS ccu ON ccu.constraint_name = tc.constraint_name WHERE constraint_type = 'FOREIGN KEY' AND tc.table_name='myTable' AND  kcu.column_name = 'myColumn' for ["myTable","myColumn"][0m
+    [32m  √[0m[90m Postgres correctly returns SELECT DISTINCT tc.constraint_name as constraint_name, tc.constraint_schema as constraint_schema, tc.constraint_catalog as constraint_catalog, tc.table_name as table_name,tc.table_schema as table_schema,tc.table_catalog as table_catalog,kcu.column_name as column_name,ccu.table_schema  AS referenced_table_schema,ccu.table_catalog  AS referenced_table_catalog,ccu.table_name  AS referenced_table_name,ccu.column_name AS referenced_column_name FROM information_schema.table_constraints AS tc JOIN information_schema.key_column_usage AS kcu ON tc.constraint_name = kcu.constraint_name JOIN information_schema.constraint_column_usage AS ccu ON ccu.constraint_name = tc.constraint_name WHERE constraint_type = 'FOREIGN KEY' AND tc.table_name='myTable' AND  kcu.column_name = 'myColumn' AND tc.table_schema = 'mySchema' for [{"schema":"mySchema","tableName":"myTable"},"myColumn"][0m
+
+[0m  errors[0m
+  [32m  √[0m[90m should maintain stack trace with message[0m
+  [32m  √[0m[90m should maintain stack trace without message[0m
+
+[0m  [POSTGRES] Hooks[0m
+[0m    arguments[0m
+    [32m  √[0m[90m hooks can modify passed arguments[0m
+[0m    proxies[0m
+[0m      defined by options.hooks[0m
+      [32m  √[0m[90m calls beforeSave/afterSave[0m
+[0m      defined by addHook method[0m
+      [32m  √[0m[90m calls beforeSave/afterSave[0m
+[0m      defined by hook method[0m
+Mon, 15 Dec 2025 15:47:05 GMT sequelize deprecated hook() method has been deprecated, please use addHook() method instead at lib\hooks.js:135:11
+      [32m  √[0m[90m calls beforeSave/afterSave[0m
+[0m    multiple hooks[0m
+    [32m  √[0m[90m stops execution when a hook throws[0m
+    [32m  √[0m[90m stops execution when a hook rejects[0m
+[0m      runs all hooks on success[0m
+      [32m  √[0m[90m using addHook[0m
+      [32m  √[0m[90m using function[0m
+      [32m  √[0m[90m using define[0m
+      [32m  √[0m[90m using a mixture[0m
+[0m    global hooks[0m
+[0m      using addHook[0m
+      [32m  √[0m[90m invokes the global hook[0m
+      [32m  √[0m[90m invokes the global hook, when the model also has a hook[0m
+[0m      using define hooks[0m
+      [32m  √[0m[90m runs the global hook when no hook is passed[0m
+      [32m  √[0m[90m does not run the global hook when the model specifies its own hook[0m
+[0m    #removeHook[0m
+sinon.reset is deprecated and will be removed from the public API in a future version of sinon.
+sinon.reset is deprecated and will be removed from the public API in a future version of sinon.
+    [32m  √[0m[90m should remove hook[0m
+sinon.reset is deprecated and will be removed from the public API in a future version of sinon.
+sinon.reset is deprecated and will be removed from the public API in a future version of sinon.
+sinon.reset is deprecated and will be removed from the public API in a future version of sinon.
+sinon.reset is deprecated and will be removed from the public API in a future version of sinon.
+    [32m  √[0m[90m should not remove other hooks[0m
+[0m    #addHook[0m
+    [32m  √[0m[90m should add additional hook when previous exists[0m
+[0m    aliases[0m
+[0m      direct method[0m
+Mon, 15 Dec 2025 15:47:05 GMT sequelize deprecated beforeDelete hook has been deprecated, please use beforeDestroy hook instead at lib\hooks.js:160:13
+      [32m  √[0m[90m #delete[0m
+[0m      .hook() method[0m
+      [32m  √[0m[90m #delete[0m
+[0m    promises[0m
+    [32m  √[0m[90m can return a promise[0m
+    [32m  √[0m[90m can return undefined[0m
+    [32m  √[0m[90m can return an error by rejecting[0m
+    [32m  √[0m[90m can return an error by throwing[0m
+[0m    sync hooks[0m
+    [32m  √[0m[90m runs all beforInit/afterInit hooks[0m
+    [32m  √[0m[90m runs all beforDefine/afterDefine hooks[0m
+
+[0m  [POSTGRES] Model[0m
+[0m    increment[0m
+[0m      options tests[0m
+      [32m  √[0m[90m should reject if options are missing[0m
+      [32m  √[0m[90m should reject if options.where are missing[0m
+
+[0m  [POSTGRES] InstanceValidator[0m
+  [32m  √[0m[90m configures itself to run hooks by default[0m
+[0m    validate[0m
+    [32m  √[0m[90m runs the validation sequence and hooks when the hooks option is true[0m
+    [32m  √[0m[90m runs the validation sequence but skips hooks if the hooks option is false[0m
+    [32m  √[0m[90m fulfills when validation is successful[0m
+    [32m  √[0m[90m rejects with a validation error when validation fails[0m
+    [32m  √[0m[90m has a useful default error message for not null validation failures[0m
+[0m    _validateAndRunHooks[0m
+    [32m  √[0m[90m should run beforeValidate and afterValidate hooks when _validate is successful[0m
+    [32m  √[0m[90m should run beforeValidate hook but not afterValidate hook when _validate is unsuccessful[0m
+    [32m  √[0m[90m should emit an error from after hook when afterValidate fails[0m
+[0m      validatedFailed hook[0m
+      [32m  √[0m[90m should call validationFailed hook when validation fails[0m
+      [32m  √[0m[90m should not replace the validation error in validationFailed hook by default[0m
+      [32m  √[0m[90m should replace the validation error if validationFailed hook creates a new error[0m
+
+[0m  [POSTGRES] Instance[0m
+[0m    build[0m
+    [32m  √[0m[90m should populate NOW default values[0m
+    [32m  √[0m[90m should populate explicitly undefined UUID primary keys[0m
+    [32m  √[0m[90m should populate undefined columns with default value[0m
+    [32m  √[0m[90m should clone the default values[0m
+
+[0m  [POSTGRES] Instance[0m
+[0m    changed[0m
+    [32m  √[0m[90m should return true for changed primitive[0m
+    [32m  √[0m[90m should return falsy for unchanged primitive[0m
+    [32m  √[0m[90m should return true for multiple changed values[0m
+    [32m  √[0m[90m should return false for two instances with same value[0m
+    [32m  √[0m[90m should return true for changed JSON with same object[0m
+    [32m  √[0m[90m should return true for JSON dot.separated key with changed values[0m
+    [32m  √[0m[90m should return false for JSON dot.separated key with same value[0m
+    [32m  √[0m[90m should return true for JSON dot.separated key with object[0m
+    [32m  √[0m[90m should return false for JSON dot.separated key with same object[0m
+    [32m  √[0m[90m should return false when changed from null to null[0m
+
+[0m  [POSTGRES] Instance[0m
+[0m    decrement[0m
+[0m      options tests[0m
+      [32m  √[0m[90m should allow decrements even if options are not given[0m
+
+[0m  [POSTGRES] Instance[0m
+[0m    destroy[0m
+[0m      options tests[0m
+      [32m  √[0m[90m should allow destroies even if options are not given[0m
+
+[0m  [POSTGRES] Instance[0m
+[0m    get[0m
+    [32m  √[0m[90m invokes getter if raw: false[0m
+    [32m  √[0m[90m does not invoke getter if raw: true[0m
+
+[0m  [POSTGRES] Instance[0m
+[0m    increment[0m
+[0m      options tests[0m
+      [32m  √[0m[90m should allow increments even if options are not given[0m
+
+[0m  [POSTGRES] Instance[0m
+[0m    isSoftDeleted[0m
+    [32m  √[0m[90m should not throw if paranoid is set to true[0m
+    [32m  √[0m[90m should throw if paranoid is set to false[0m
+    [32m  √[0m[90m should return false if the soft-delete property is the same as the default value[0m
+    [32m  √[0m[90m should return false if the soft-delete property is set to a date in the future[0m
+    [32m  √[0m[90m should return true if the soft-delete property is set to a date before now[0m
+
+[0m  [POSTGRES] Instance[0m
+[0m    previous[0m
+    [32m  √[0m[90m should return correct previous value[0m
+
+[0m  [POSTGRES] Instance[0m
+[0m    reload[0m
+[0m      options tests[0m
+      [32m  √[0m[90m should allow reloads even if options are not given[0m
+
+[0m  [POSTGRES] Instance[0m
+[0m    restore[0m
+[0m      options tests[0m
+      [32m  √[0m[90m should allow restores even if options are not given[0m
+
+[0m  [POSTGRES] Instance[0m
+[0m    save[0m
+    [32m  √[0m[90m should disallow saves if no primary key values is present[0m
+[0m      options tests[0m
+      [32m  √[0m[90m should allow saves even if options are not given[0m
+
+[0m  [POSTGRES] Instance[0m
+[0m    set[0m
+    [32m  √[0m[90m sets nested keys in JSON objects[0m
+    [32m  √[0m[90m doesnt mutate the JSONB defaultValue[0m
+    [32m  √[0m[90m sets the date "1970-01-01" to previously null field[0m
+    [32m  √[0m[90m overwrites non-date originalValue with date[0m
+[0m      custom setter[0m
+      [32m  √[0m[90m does not set field to changed if field is set to the same value with custom setter using primitive value[0m
+      [32m  √[0m[90m sets field to changed if field is set to the another value with custom setter using primitive value[0m
+      [32m  √[0m[90m does not set field to changed if field is set to the same value with custom setter using object[0m
+      [32m  √[0m[90m sets field to changed if field is set to the another value with custom setter using object[0m
+
+[0m  [POSTGRES] Instance[0m
+[0m    toJSON[0m
+    [32m  √[0m[90m returns copy of json[0m
+
+[0m  [POSTGRES] Model[0m
+[0m    bulkCreate[0m
+[0m      validations[0m
+      [32m  √[0m[90m should not fail for renamed fields[0m
+
+[0m  [POSTGRES] Model[0m
+[0m    method count[0m
+[0m      should pass the same options to model.aggregate as findAndCount[0m
+Mon, 15 Dec 2025 15:47:05 GMT sequelize deprecated Model.findAndCount has been deprecated, please use Model.findAndCountAll instead at lib\model.js:4216:9
+      [32m  √[0m[90m with includes[0m
+      [32m  √[0m[90m attributes should be stripped in case of findAndCount[0m
+
+[0m  [POSTGRES] Model[0m
+[0m    define[0m
+    [32m  √[0m[90m should allow custom timestamps with underscored: true[0m
+    [32m  √[0m[90m should throw when id is added but not marked as PK[0m
+    [32m  √[0m[90m should defend against null or undefined "unique" attributes[0m
+
+[0m  [POSTGRES] Model[0m
+[0m    method destroy[0m
+    [32m  √[0m[90m can detect complexe objects[0m
+
+[0m  [POSTGRES] Model[0m
+[0m    findAndCount[0m
+[0m      should handle promise rejection[0m
+      [32m  √[0m[90m with errors in count and findAll both[0m
+
+[0m  [POSTGRES] Model[0m
+[0m    findCreateFind[0m
+    [32m  √[0m[90m should return the result of the first find call if not empty[0m
+    [32m  √[0m[90m should create if first find call is empty[0m
+    [32m  √[0m[90m should do a second find if create failed do to unique constraint[0m
+
+[0m  [POSTGRES] Model[0m
+[0m    method findOrCreate[0m
+    [32m  √[0m[90m should use transaction from cls if available[0m
+    [32m  √[0m[90m should not use transaction from cls if provided as argument[0m
+
+[0m  [POSTGRES] Model[0m
+[0m    warnOnInvalidOptions[0m
+(sequelize) Warning: Model attributes (firstName) passed into finder method options of model User, but the options.where object is empty. Did you forget to use options.where?
+    [32m  √[0m[90m Warns the user if they use a model attribute without a where clause[0m
+    [32m  √[0m[90m Does not warn the user if they use a model attribute without a where clause that shares its name with a query option[0m
+    [32m  √[0m[90m Does not warn the user if they use valid query options[0m
+[0m    method findAll[0m
+[0m      handles input validation[0m
+      [32m  √[0m[90m calls warnOnInvalidOptions[0m
+      [32m  √[0m[90m Throws an error when the attributes option is formatted incorrectly[0m
+[0m      attributes include / exclude[0m
+      [32m  √[0m[90m allows me to include additional attributes[0m
+      [32m  √[0m[90m allows me to exclude attributes[0m
+      [32m  √[0m[90m include takes precendence over exclude[0m
+      [32m  √[0m[90m works for models without PK #4607[0m
+
+[0m  [POSTGRES] Model[0m
+[0m    method findOne[0m
+    [32m  √[0m[90m should add limit when using { $ gt on the primary key[0m
+    [32m  √[0m[90m should add limit when using multi-column unique key[0m
+[0m      should not add limit when querying on a primary key[0m
+      [32m  √[0m[90m with id primary key[0m
+      [32m  √[0m[90m with custom primary key[0m
+      [32m  √[0m[90m with blob primary key[0m
+[0m      should not add limit when querying on an unique key[0m
+      [32m  √[0m[90m with custom unique key[0m
+      [32m  √[0m[90m with blob unique key[0m
+
+[0m  [POSTGRES] Model[0m
+[0m    hasAlias[0m
+    [32m  √[0m[90m returns true if a model has an association with the specified alias[0m
+    [32m  √[0m[90m returns false if a model does not have an association with the specified alias[0m
+
+[0m  [POSTGRES] Model[0m
+[0m    all[0m
+    [32m  √[0m[90m can expand nested self-reference[0m
+[0m    _validateIncludedElements[0m
+[0m      attributes[0m
+      [32m  √[0m[90m should not inject the aliased PK again, if it's already there[0m
+[0m        include / exclude[0m
+        [32m  √[0m[90m allows me to include additional attributes[0m
+        [32m  √[0m[90m allows me to exclude attributes[0m
+        [32m  √[0m[90m include takes precendence over exclude[0m
+[0m      scope[0m
+      [32m  √[0m[90m adds the default scope to where[0m
+      [32m  √[0m[90m adds the where from a scoped model[0m
+      [32m  √[0m[90m adds the attributes from a scoped model[0m
+      [32m  √[0m[90m merges where with the where from a scoped model[0m
+      [32m  √[0m[90m add the where from a scoped associated model[0m
+      [32m  √[0m[90m handles a scope with an aliased column (.field)[0m
+[0m      duplicating[0m
+      [32m  √[0m[90m should tag a hasMany association as duplicating: true if undefined[0m
+      [32m  √[0m[90m should respect include.duplicating for a hasMany[0m
+[0m      _conformInclude: string alias[0m
+      [32m  √[0m[90m should expand association from string alias[0m
+      [32m  √[0m[90m should expand string association[0m
+[0m      _getIncludedAssociation[0m
+      [32m  √[0m[90m returns an association when there is a single unaliased association[0m
+      [32m  √[0m[90m returns an association when there is a single aliased association[0m
+      [32m  √[0m[90m returns an association when there are multiple aliased associations[0m
+[0m      subQuery[0m
+      [32m  √[0m[90m should be true if theres a duplicating association[0m
+      [32m  √[0m[90m should be false if theres a duplicating association but no limit[0m
+      [32m  √[0m[90m should be true if theres a nested duplicating association[0m
+      [32m  √[0m[90m should be false if theres a nested duplicating association but no limit[0m
+      [32m  √[0m[90m should tag a required hasMany association[0m
+      [32m  √[0m[90m should not tag a required hasMany association with duplicating false[0m
+      [32m  √[0m[90m should tag a hasMany association with where[0m
+      [32m  √[0m[90m should not tag a hasMany association with where and duplicating false[0m
+      [32m  √[0m[90m should tag a required belongsTo alongside a duplicating association[0m
+      [32m  √[0m[90m should not tag a required belongsTo alongside a duplicating association with duplicating false[0m
+      [32m  √[0m[90m should tag a belongsTo association with where alongside a duplicating association[0m
+      [32m  √[0m[90m should tag a required belongsTo association alongside a duplicating association with a nested belongsTo[0m
+      [32m  √[0m[90m should tag a belongsTo association with where alongside a duplicating association with duplicating false[0m
+
+[0m  [POSTGRES] Model[0m
+[0m    indexes[0m
+    [32m  √[0m[90m should automatically set a gin index for JSONB indexes[0m
+    [32m  √[0m[90m should set the unique property when type is unique[0m
+    [32m  √[0m[90m should not set rawAttributes when indexes are defined via options[0m
+    [32m  √[0m[90m should not set rawAttributes when composite unique indexes are defined via options[0m
+
+[0m  [POSTGRES] Model[0m
+[0m    not breaking built-ins[0m
+    [32m  √[0m[90m it should not break instance.set by defining a model set attribute[0m
+
+[0m  [POSTGRES] Model[0m
+[0m    removeAttribute[0m
+    [32m  √[0m[90m should support removing the primary key[0m
+    [32m  √[0m[90m should not add undefined attribute after removing primary key[0m
+
+[0m  [POSTGRES] ModelSchemas[0m
+[0m    schema[0m
+    [32m  √[0m[90m should work with no default schema[0m
+    [32m  √[0m[90m should apply default schema from define[0m
+    [32m  √[0m[90m should be able to override the default schema[0m
+    [32m  √[0m[90m should be able nullify schema[0m
+    [32m  √[0m[90m should support multiple, coexistent schema models[0m
+[0m    schema delimiter[0m
+    [32m  √[0m[90m should work with no default schema delimiter[0m
+    [32m  √[0m[90m should apply default schema delimiter from define[0m
+    [32m  √[0m[90m should be able to override the default schema delimiter[0m
+    [32m  √[0m[90m should support multiple, coexistent schema delimiter models[0m
+
+[0m  [POSTGRES] Model[0m
+[0m    .scope[0m
+    [32m  √[0m[90m defaultScope should be an empty object if not overridden[0m
+    [32m  √[0m[90m should apply default scope[0m
+    [32m  √[0m[90m should be able to unscope[0m
+    [32m  √[0m[90m should be able to merge scopes[0m
+    [32m  √[0m[90m should support multiple, coexistent scoped models[0m
+    [32m  √[0m[90m should work with function scopes[0m
+    [32m  √[0m[90m should work with consecutive function scopes[0m
+    [32m  √[0m[90m should be able to check default scope name[0m
+    [32m  √[0m[90m should be able to check custom scope name[0m
+    [32m  √[0m[90m should be able to check multiple custom scope names[0m
+    [32m  √[0m[90m should be able to merge two scoped includes[0m
+    [32m  √[0m[90m should be able to override the default scope[0m
+    [32m  √[0m[90m should be able to combine default with another scope[0m
+    [32m  √[0m[90m should be able to use raw queries[0m
+    [32m  √[0m[90m should override the default scope[0m
+    [32m  √[0m[90m should emit an error for scopes that dont exist[0m
+    [32m  √[0m[90m should concatenate scope groups[0m
+[0m      attribute exclude / include[0m
+      [32m  √[0m[90m should be able to exclude in defaultScope #4735[0m
+      [32m  √[0m[90m should be able to exclude in a scope #4925[0m
+[0m    addScope[0m
+    [32m  √[0m[90m works if the model does not have any initial scopes[0m
+    [32m  √[0m[90m allows me to add a new scope[0m
+    [32m  √[0m[90m warns me when overriding an existing scope[0m
+    [32m  √[0m[90m allows me to override an existing scope[0m
+    [32m  √[0m[90m warns me when overriding an existing default scope[0m
+    [32m  √[0m[90m allows me to override a default scope[0m
+    [32m  √[0m[90m works with exclude and include attributes[0m
+[0m    _injectScope[0m
+    [32m  √[0m[90m should be able to merge scope and where[0m
+    [32m  √[0m[90m should be able to overwrite multiple scopes with the same include[0m
+    [32m  √[0m[90m should be able to override scoped include[0m
+    [32m  √[0m[90m should be able to merge aliased includes with the same model[0m
+    [32m  √[0m[90m should be able to merge scoped include with include in find[0m
+[0m      include all[0m
+      [32m  √[0m[90m scope with all[0m
+      [32m  √[0m[90m options with all[0m
+
+[0m  [POSTGRES] Model[0m
+[0m    method update[0m
+    [32m  √[0m[90m can detect complexe objects[0m
+[0m      properly clones input values[0m
+      [32m  √[0m[90m with default options[0m
+      [32m  √[0m[90m when using fields option[0m
+
+[0m  [POSTGRES] Model[0m
+[0m    method upsert[0m
+    [32m  √[0m[90m skip validations for missing fields[0m
+    [32m  √[0m[90m creates new record with correct field names[0m
+    [32m  √[0m[90m creates new record with timestamps disabled[0m
+    [32m  √[0m[90m updates all changed fields by default[0m
+
+[0m  [POSTGRES] InstanceValidator[0m
+[0m    validations[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "0" for the validation "is"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "a" for the validation "is"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "a" for the validation "is"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "a" for the validation "is"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "a" for the validation "not"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "0" for the validation "not"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "0" for the validation "not"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "0" for the validation "not"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "a" for the validation "isEmail"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "abc@abc.com" for the validation "isEmail"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "abc@abc.com" for the validation "isEmail"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "abc@abc.com" for the validation "isEmail"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "abc@abc.com" for the validation "isEmail"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "abc" for the validation "isUrl"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "http://abc.com" for the validation "isUrl"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "http://abc.com" for the validation "isUrl"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "http://abc.com" for the validation "isUrl"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "http://abc.com" for the validation "isUrl"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "abc" for the validation "isIP"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "129.89.23.1" for the validation "isIP"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "129.89.23.1" for the validation "isIP"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "129.89.23.1" for the validation "isIP"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "129.89.23.1" for the validation "isIP"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "abc" for the validation "isIPv4"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "129.89.23.1" for the validation "isIPv4"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "129.89.23.1" for the validation "isIPv4"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "129.89.23.1" for the validation "isIPv4"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "129.89.23.1" for the validation "isIPv4"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "1111:2222:3333::5555:" for the validation "isIPv6"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "fe80:0000:0000:0000:0204:61ff:fe9d:f156" for the validation "isIPv6"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "fe80:0000:0000:0000:0204:61ff:fe9d:f156" for the validation "isIPv6"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "fe80:0000:0000:0000:0204:61ff:fe9d:f156" for the validation "isIPv6"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "fe80:0000:0000:0000:0204:61ff:fe9d:f156" for the validation "isIPv6"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "012" for the validation "isAlpha"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "abc" for the validation "isAlpha"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "abc" for the validation "isAlpha"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "abc" for the validation "isAlpha"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "abc" for the validation "isAlpha"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "_abc019" for the validation "isAlphanumeric"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "abc019" for the validation "isAlphanumeric"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "abc019" for the validation "isAlphanumeric"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "abc019" for the validation "isAlphanumeric"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "abc019" for the validation "isAlphanumeric"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "abc" for the validation "isNumeric"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "019" for the validation "isNumeric"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "019" for the validation "isNumeric"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "019" for the validation "isNumeric"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "019" for the validation "isNumeric"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "9.2" for the validation "isInt"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "-9" for the validation "isInt"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "-9" for the validation "isInt"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "-9" for the validation "isInt"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "-9" for the validation "isInt"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "AB" for the validation "isLowercase"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "ab" for the validation "isLowercase"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "ab" for the validation "isLowercase"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "ab" for the validation "isLowercase"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "ab" for the validation "isLowercase"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "ab" for the validation "isUppercase"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "AB" for the validation "isUppercase"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "AB" for the validation "isUppercase"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "AB" for the validation "isUppercase"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "AB" for the validation "isUppercase"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "a" for the validation "isDecimal"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "0.2" for the validation "isDecimal"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "0.2" for the validation "isDecimal"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "0.2" for the validation "isDecimal"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "0.2" for the validation "isDecimal"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "a" for the validation "isFloat"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "9.2" for the validation "isFloat"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "9.2" for the validation "isFloat"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "9.2" for the validation "isFloat"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "9.2" for the validation "isFloat"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "0" for the validation "isNull"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "null" for the validation "isNull"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "null" for the validation "isNull"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "null" for the validation "isNull"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "null" for the validation "isNull"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "       " for the validation "notEmpty"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "a" for the validation "notEmpty"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "a" for the validation "notEmpty"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "a" for the validation "notEmpty"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "a" for the validation "notEmpty"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "bla" for the validation "equals"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "bla bla bla" for the validation "equals"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "bla bla bla" for the validation "equals"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "bla bla bla" for the validation "equals"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "la" for the validation "contains"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "0bla23" for the validation "contains"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "0bla23" for the validation "contains"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "0bla23" for the validation "contains"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "0bla23" for the validation "notContains"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "la" for the validation "notContains"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "la" for the validation "notContains"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "la" for the validation "notContains"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "0" for the validation "regex"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "a" for the validation "regex"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "a" for the validation "regex"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "a" for the validation "regex"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "a" for the validation "notRegex"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "0" for the validation "notRegex"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "0" for the validation "notRegex"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "0" for the validation "notRegex"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "1" for the validation "len"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "12345" for the validation "len"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "12" for the validation "len"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "12" for the validation "len"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "12" for the validation "len"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "123" for the validation "len"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "123" for the validation "len"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "123" for the validation "len"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "1234" for the validation "len"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "1234" for the validation "len"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "1234" for the validation "len"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "1" for the validation "len"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "12345" for the validation "len"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "12" for the validation "len"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "12" for the validation "len"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "12" for the validation "len"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "123" for the validation "len"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "123" for the validation "len"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "123" for the validation "len"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "1234" for the validation "len"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "1234" for the validation "len"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "1234" for the validation "len"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "f47ac10b-58cc-3372-a567-0e02b2c3d479" for the validation "isUUID"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "f47ac10b-58cc-4372-a567-0e02b2c3d479" for the validation "isUUID"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "f47ac10b-58cc-4372-a567-0e02b2c3d479" for the validation "isUUID"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "f47ac10b-58cc-4372-a567-0e02b2c3d479" for the validation "isUUID"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "not a date" for the validation "isDate"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "2011-02-04" for the validation "isDate"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "2011-02-04" for the validation "isDate"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "2011-02-04" for the validation "isDate"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "2011-02-04" for the validation "isDate"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "2011-11-04" for the validation "isAfter"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "2011-11-06" for the validation "isAfter"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "2011-11-06" for the validation "isAfter"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "2011-11-06" for the validation "isAfter"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "2011-11-06" for the validation "isBefore"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "2011-11-04" for the validation "isBefore"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "2011-11-04" for the validation "isBefore"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "2011-11-04" for the validation "isBefore"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "ghik" for the validation "isIn"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "ghij" for the validation "isIn"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "ghij" for the validation "isIn"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "ghij" for the validation "isIn"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "ghij" for the validation "notIn"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "ghik" for the validation "notIn"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "ghik" for the validation "notIn"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "ghik" for the validation "notIn"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "24" for the validation "max"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "23" for the validation "max"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "23" for the validation "max"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "23" for the validation "max"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "24" for the validation "max"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "23" for the validation "max"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "23" for the validation "max"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "23" for the validation "max"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "22" for the validation "min"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "23" for the validation "min"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "23" for the validation "min"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "23" for the validation "min"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "22" for the validation "min"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "23" for the validation "min"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "23" for the validation "min"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "23" for the validation "min"[0m
+    [32m  √[0m[90m correctly specifies an instance as invalid using a value of "401288888888188f" for the validation "isCreditCard"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "4012888888881881" for the validation "isCreditCard"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "4012888888881881" for the validation "isCreditCard"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "4012888888881881" for the validation "isCreditCard"[0m
+    [32m  √[0m[90m correctly specifies an instance as valid using a value of "4012888888881881" for the validation "isCreditCard"[0m
+[0m    datatype validations[0m
+[0m      should not throw[0m
+[0m        create[0m
+        [32m  √[0m[90m should allow number as a string[0m
+        [32m  √[0m[90m should allow decimal as a string[0m
+Mon, 15 Dec 2025 15:47:06 GMT sequelize deprecated Model.find has been deprecated, please use Model.findOne instead at lib\model.js:4212:9
+        [32m  √[0m[90m should allow dates as a string[0m
+        [32m  √[0m[90m should allow decimal big numbers as a string[0m
+        [32m  √[0m[90m should allow decimal as scientific notation[0m
+        [32m  √[0m[90m should allow string as a number[0m
+        [32m  √[0m[90m should allow 0/1 as a boolean[0m
+        [32m  √[0m[90m should allow 0/1 string as a boolean[0m
+        [32m  √[0m[90m should allow true/false string as a boolean[0m
+[0m        findAll[0m
+Mon, 15 Dec 2025 15:47:06 GMT sequelize deprecated Model.all has been deprecated, please use Model.findAll instead at lib\model.js:4228:9
+        [32m  √[0m[90m should allow $in[0m
+        [32m  √[0m[90m should allow $like for uuid[0m
+[0m      should throw validationerror[0m
+[0m        create[0m
+        [32m  √[0m[90m should throw when passing string[0m
+        [32m  √[0m[90m should throw when passing decimal[0m
+[0m        update[0m
+        [32m  √[0m[90m should throw when passing string[0m
+        [32m  √[0m[90m should throw when passing decimal[0m
+[0m    custom validation functions[0m
+[0m      should not throw[0m
+[0m        create[0m
+        [32m  √[0m[90m custom validation functions are successful[0m
+[0m        update[0m
+        [32m  √[0m[90m custom validation functions are successful[0m
+[0m      should throw validationerror[0m
+[0m        create[0m
+        [32m  √[0m[90m custom attribute validation function fails[0m
+        [32m  √[0m[90m custom model validation function fails[0m
+[0m        update[0m
+        [32m  √[0m[90m custom attribute validation function fails[0m
+        [32m  √[0m[90m when custom model validation function fails[0m
+[0m    custom validation functions returning promises[0m
+[0m      should not throw[0m
+[0m        create[0m
+        [32m  √[0m[90m custom model validation functions are successful[0m
+[0m        update[0m
+        [32m  √[0m[90m custom model validation functions are successful[0m
+[0m      should throw validationerror[0m
+[0m        create[0m
+        [32m  √[0m[90m custom model validation function fails[0m
+[0m        update[0m
+        [32m  √[0m[90m when custom model validation function fails[0m
+
+[0m  Promise[0m
+  [32m  √[0m[90m should be an independent copy of bluebird library[0m
+
+[0m  QueryInterface#bulkDelete[0m
+  [32m  √[0m[90m does not parse replacements outside of raw sql[0m
+
+[0m  QueryInterface#bulkInsert[0m
+  [32m  √[0m[90m does not parse replacements outside of raw sql[0m
+
+[0m  QueryInterface#decrement[0m
+  [32m  √[0m[90m does not parse replacements outside of raw sql[0m
+
+[0m  QueryInterface#delete[0m
+  [32m  √[0m[90m does not parse replacements outside of raw sql[0m
+
+[0m  QueryInterface#increment[0m
+  [32m  √[0m[90m does not parse replacements outside of raw sql[0m
+
+[0m  QueryInterface#rawSelect[0m
+  [32m  √[0m[90m does not parse user-provided data as replacements[0m
+
+[0m  QueryInterface#select[0m
+  [32m  √[0m[90m does not parse user-provided data as replacements[0m
+
+[0m  [POSTGRES] SQL[0m
+[0m    addConstraint[0m
+[0m      unique[0m
+      [32m  √[0m[90m naming[0m
+      [32m  √[0m[90m should create constraint name if not passed[0m
+      [32m  √[0m[90m should work with multiple columns[0m
+[0m      check[0m
+      [32m  √[0m[90m naming[0m
+      [32m  √[0m[90m where[0m
+[0m      primary key[0m
+      [32m  √[0m[90m naming[0m
+      [32m  √[0m[90m should create constraint name if not passed[0m
+      [32m  √[0m[90m should work with multiple columns[0m
+[0m      foreign key[0m
+      [32m  √[0m[90m naming[0m
+      [32m  √[0m[90m uses onDelete, onUpdate[0m
+      [32m  √[0m[90m errors if references object is not passed[0m
+[0m      validation[0m
+      [32m  √[0m[90m throw error on invalid type[0m
+      [32m  √[0m[90m calls getConstraintSnippet function[0m
+      [32m  √[0m[90m should throw error if default constraints are used in other dialects[0m
+
+[0m  [POSTGRES] SQL[0m
+[0m    changeColumn[0m
+    [32m  √[0m[90m properly generate alter queries[0m
+    [32m  √[0m[90m properly generate alter queries for foreign keys[0m
+
+[0m  [POSTGRES] SQL[0m
+[0m    dropSchema[0m
+    [32m  √[0m[90m IF EXISTS[0m
+[0m    createSchema[0m
+    [32m  √[0m[90m 9.2.0 or above[0m
+    [32m  √[0m[90m below 9.2.0[0m
+
+[0m  [POSTGRES] SQL[0m
+[0m    createTable[0m
+[0m      with enums[0m
+      [32m  √[0m[90m references enum in the right schema #3171[0m
+[0m      IF NOT EXISTS version check[0m
+      [32m  √[0m[90m it will not have IF NOT EXISTS for version 9.0 or below[0m
+      [32m  √[0m[90m it will have IF NOT EXISTS for version 9.1 or above[0m
+      [32m  √[0m[90m it will have IF NOT EXISTS for default version[0m
+[0m      Attempt to use different lodash template settings[0m
+      [32m  √[0m[90m it should be a okay![0m
+
+[0m  [POSTGRES] SQL[0m
+[0m    DataTypes[0m
+    [32m  √[0m[90m NUMERIC[0m
+    [32m  √[0m[90m NUMERIC(15,5)[0m
+[0m      STRING[0m
+      [32m  √[0m[90m STRING[0m
+      [32m  √[0m[90m STRING(1234)[0m
+      [32m  √[0m[90m STRING({ length: 1234 })[0m
+      [32m  √[0m[90m STRING(1234).BINARY[0m
+      [32m  √[0m[90m STRING.BINARY[0m
+[0m        validate[0m
+        [32m  √[0m[90m should return `true` if `value` is a string[0m
+[0m      TEXT[0m
+      [32m  √[0m[90m TEXT[0m
+(sequelize) Warning: PostgreSQL does not support TEXT with options. Plain `TEXT` will be used instead., '
+>> Check:', http://www.postgresql.org/docs/9.4/static/datatype.html
+      [32m  √[0m[90m TEXT("tiny")[0m
+      [32m  √[0m[90m TEXT({ length: "tiny" })[0m
+      [32m  √[0m[90m TEXT("medium")[0m
+      [32m  √[0m[90m TEXT("long")[0m
+[0m        validate[0m
+        [32m  √[0m[90m should throw an error if `value` is invalid[0m
+        [32m  √[0m[90m should return `true` if `value` is a string[0m
+[0m      CHAR[0m
+      [32m  √[0m[90m CHAR[0m
+      [32m  √[0m[90m CHAR(12)[0m
+      [32m  √[0m[90m CHAR({ length: 12 })[0m
+      [32m  √[0m[90m CHAR(12).BINARY[0m
+      [32m  √[0m[90m CHAR.BINARY[0m
+[0m      BOOLEAN[0m
+      [32m  √[0m[90m BOOLEAN[0m
+[0m        validate[0m
+        [32m  √[0m[90m should throw an error if `value` is invalid[0m
+        [32m  √[0m[90m should return `true` if `value` is a boolean[0m
+[0m      DATE[0m
+      [32m  √[0m[90m DATE[0m
+      [32m  √[0m[90m DATE(6)[0m
+[0m        validate[0m
+        [32m  √[0m[90m should throw an error if `value` is invalid[0m
+        [32m  √[0m[90m should return `true` if `value` is a date[0m
+[0m      HSTORE[0m
+[0m        validate[0m
+        [32m  √[0m[90m should throw an error if `value` is invalid[0m
+        [32m  √[0m[90m should return `true` if `value` is an hstore[0m
+[0m      UUID[0m
+      [32m  √[0m[90m UUID[0m
+[0m        validate[0m
+        [32m  √[0m[90m should throw an error if `value` is invalid[0m
+        [32m  √[0m[90m should return `true` if `value` is an uuid[0m
+        [32m  √[0m[90m should return `true` if `value` is a string and we accept strings[0m
+[0m      UUIDV1[0m
+      [32m  √[0m[90m UUIDV1[0m
+[0m        validate[0m
+        [32m  √[0m[90m should throw an error if `value` is invalid[0m
+        [32m  √[0m[90m should return `true` if `value` is an uuid[0m
+        [32m  √[0m[90m should return `true` if `value` is a string and we accept strings[0m
+[0m      UUIDV4[0m
+      [32m  √[0m[90m UUIDV4[0m
+[0m        validate[0m
+        [32m  √[0m[90m should throw an error if `value` is invalid[0m
+        [32m  √[0m[90m should return `true` if `value` is an uuid[0m
+        [32m  √[0m[90m should return `true` if `value` is a string and we accept strings[0m
+[0m      NOW[0m
+      [32m  √[0m[90m NOW[0m
+[0m      INTEGER[0m
+      [32m  √[0m[90m INTEGER[0m
+      [32m  √[0m[90m INTEGER.UNSIGNED[0m
+      [32m  √[0m[90m INTEGER.UNSIGNED.ZEROFILL[0m
+      [32m  √[0m[90m INTEGER(11)[0m
+      [32m  √[0m[90m INTEGER({ length: 11 })[0m
+      [32m  √[0m[90m INTEGER(11).UNSIGNED[0m
+      [32m  √[0m[90m INTEGER(11).UNSIGNED.ZEROFILL[0m
+      [32m  √[0m[90m INTEGER(11).ZEROFILL[0m
+      [32m  √[0m[90m INTEGER(11).ZEROFILL.UNSIGNED[0m
+[0m        validate[0m
+        [32m  √[0m[90m should throw an error if `value` is invalid[0m
+        [32m  √[0m[90m should return `true` if `value` is a valid integer[0m
+[0m      TINYINT[0m
+      [32m  √[0m[90m TINYINT[0m
+      [32m  √[0m[90m TINYINT(2)[0m
+      [32m  √[0m[90m TINYINT({ length: 2 })[0m
+      [32m  √[0m[90m TINYINT.UNSIGNED[0m
+      [32m  √[0m[90m TINYINT(2).UNSIGNED[0m
+      [32m  √[0m[90m TINYINT.UNSIGNED.ZEROFILL[0m
+      [32m  √[0m[90m TINYINT(2).UNSIGNED.ZEROFILL[0m
+      [32m  √[0m[90m TINYINT.ZEROFILL[0m
+      [32m  √[0m[90m TINYINT(2).ZEROFILL[0m
+      [32m  √[0m[90m TINYINT.ZEROFILL.UNSIGNED[0m
+      [32m  √[0m[90m TINYINT(2).ZEROFILL.UNSIGNED[0m
+[0m        validate[0m
+        [32m  √[0m[90m should throw an error if `value` is invalid[0m
+        [32m  √[0m[90m should return `true` if `value` is an integer[0m
+[0m      SMALLINT[0m
+      [32m  √[0m[90m SMALLINT[0m
+(sequelize) Warning: PostgreSQL does not support SMALLINT with options. Plain `SMALLINT` will be used instead., '
+>> Check:', http://www.postgresql.org/docs/9.4/static/datatype.html
+      [32m  √[0m[90m SMALLINT(4)[0m
+      [32m  √[0m[90m SMALLINT({ length: 4 })[0m
+      [32m  √[0m[90m SMALLINT.UNSIGNED[0m
+      [32m  √[0m[90m SMALLINT(4).UNSIGNED[0m
+      [32m  √[0m[90m SMALLINT.UNSIGNED.ZEROFILL[0m
+      [32m  √[0m[90m SMALLINT(4).UNSIGNED.ZEROFILL[0m
+      [32m  √[0m[90m SMALLINT.ZEROFILL[0m
+      [32m  √[0m[90m SMALLINT(4).ZEROFILL[0m
+      [32m  √[0m[90m SMALLINT.ZEROFILL.UNSIGNED[0m
+      [32m  √[0m[90m SMALLINT(4).ZEROFILL.UNSIGNED[0m
+[0m        validate[0m
+        [32m  √[0m[90m should throw an error if `value` is invalid[0m
+        [32m  √[0m[90m should return `true` if `value` is an integer[0m
+[0m      MEDIUMINT[0m
+      [32m  √[0m[90m MEDIUMINT[0m
+      [32m  √[0m[90m MEDIUMINT(6)[0m
+      [32m  √[0m[90m MEDIUMINT({ length: 6 })[0m
+      [32m  √[0m[90m MEDIUMINT.UNSIGNED[0m
+      [32m  √[0m[90m MEDIUMINT(6).UNSIGNED[0m
+      [32m  √[0m[90m MEDIUMINT.UNSIGNED.ZEROFILL[0m
+      [32m  √[0m[90m MEDIUMINT(6).UNSIGNED.ZEROFILL[0m
+      [32m  √[0m[90m MEDIUMINT.ZEROFILL[0m
+      [32m  √[0m[90m MEDIUMINT(6).ZEROFILL[0m
+      [32m  √[0m[90m MEDIUMINT.ZEROFILL.UNSIGNED[0m
+      [32m  √[0m[90m MEDIUMINT(6).ZEROFILL.UNSIGNED[0m
+[0m        validate[0m
+        [32m  √[0m[90m should throw an error if `value` is invalid[0m
+        [32m  √[0m[90m should return `true` if `value` is an integer[0m
+[0m      BIGINT[0m
+      [32m  √[0m[90m BIGINT[0m
+(sequelize) Warning: PostgreSQL does not support BIGINT with options. Plain `BIGINT` will be used instead., '
+>> Check:', http://www.postgresql.org/docs/9.4/static/datatype.html
+      [32m  √[0m[90m BIGINT.UNSIGNED[0m
+      [32m  √[0m[90m BIGINT.UNSIGNED.ZEROFILL[0m
+      [32m  √[0m[90m BIGINT(11)[0m
+      [32m  √[0m[90m BIGINT({ length: 11 })[0m
+      [32m  √[0m[90m BIGINT(11).UNSIGNED[0m
+      [32m  √[0m[90m BIGINT(11).UNSIGNED.ZEROFILL[0m
+      [32m  √[0m[90m BIGINT(11).ZEROFILL[0m
+      [32m  √[0m[90m BIGINT(11).ZEROFILL.UNSIGNED[0m
+[0m        validate[0m
+        [32m  √[0m[90m should throw an error if `value` is invalid[0m
+        [32m  √[0m[90m should return `true` if `value` is an integer[0m
+[0m      REAL[0m
+      [32m  √[0m[90m REAL[0m
+(sequelize) Warning: PostgreSQL does not support REAL with options. Plain `REAL` will be used instead., '
+>> Check:', http://www.postgresql.org/docs/9.4/static/datatype.html
+      [32m  √[0m[90m REAL.UNSIGNED[0m
+      [32m  √[0m[90m REAL(11)[0m
+      [32m  √[0m[90m REAL({ length: 11 })[0m
+      [32m  √[0m[90m REAL(11).UNSIGNED[0m
+      [32m  √[0m[90m REAL(11).UNSIGNED.ZEROFILL[0m
+      [32m  √[0m[90m REAL(11).ZEROFILL[0m
+      [32m  √[0m[90m REAL(11).ZEROFILL.UNSIGNED[0m
+      [32m  √[0m[90m REAL(11, 12)[0m
+      [32m  √[0m[90m REAL(11, 12).UNSIGNED[0m
+      [32m  √[0m[90m REAL({ length: 11, decimals: 12 }).UNSIGNED[0m
+      [32m  √[0m[90m REAL(11, 12).UNSIGNED.ZEROFILL[0m
+      [32m  √[0m[90m REAL(11, 12).ZEROFILL[0m
+      [32m  √[0m[90m REAL(11, 12).ZEROFILL.UNSIGNED[0m
+[0m      DOUBLE PRECISION[0m
+      [32m  √[0m[90m DOUBLE[0m
+(sequelize) Warning: PostgreSQL does not support DOUBLE with options. Plain `DOUBLE` will be used instead., '
+>> Check:', http://www.postgresql.org/docs/9.4/static/datatype.html
+      [32m  √[0m[90m DOUBLE.UNSIGNED[0m
+      [32m  √[0m[90m DOUBLE(11)[0m
+      [32m  √[0m[90m DOUBLE(11).UNSIGNED[0m
+      [32m  √[0m[90m DOUBLE({ length: 11 }).UNSIGNED[0m
+      [32m  √[0m[90m DOUBLE(11).UNSIGNED.ZEROFILL[0m
+      [32m  √[0m[90m DOUBLE(11).ZEROFILL[0m
+      [32m  √[0m[90m DOUBLE(11).ZEROFILL.UNSIGNED[0m
+      [32m  √[0m[90m DOUBLE(11, 12)[0m
+      [32m  √[0m[90m DOUBLE(11, 12).UNSIGNED[0m
+      [32m  √[0m[90m DOUBLE(11, 12).UNSIGNED.ZEROFILL[0m
+      [32m  √[0m[90m DOUBLE(11, 12).ZEROFILL[0m
+      [32m  √[0m[90m DOUBLE(11, 12).ZEROFILL.UNSIGNED[0m
+[0m      FLOAT[0m
+      [32m  √[0m[90m FLOAT[0m
+(sequelize) Warning: PostgreSQL does not support FLOAT unsigned. `UNSIGNED` was removed., '
+>> Check:', http://www.postgresql.org/docs/9.4/static/datatype.html
+      [32m  √[0m[90m FLOAT.UNSIGNED[0m
+      [32m  √[0m[90m FLOAT(11)[0m
+      [32m  √[0m[90m FLOAT(11).UNSIGNED[0m
+(sequelize) Warning: PostgreSQL does not support FLOAT zerofill. `ZEROFILL` was removed., '
+>> Check:', http://www.postgresql.org/docs/9.4/static/datatype.html
+      [32m  √[0m[90m FLOAT(11).UNSIGNED.ZEROFILL[0m
+      [32m  √[0m[90m FLOAT(11).ZEROFILL[0m
+      [32m  √[0m[90m FLOAT({ length: 11 }).ZEROFILL[0m
+      [32m  √[0m[90m FLOAT(11).ZEROFILL.UNSIGNED[0m
+(sequelize) Warning: PostgreSQL does not support FLOAT with decimals. Plain `FLOAT` will be used instead., '
+>> Check:', http://www.postgresql.org/docs/9.4/static/datatype.html
+      [32m  √[0m[90m FLOAT(11, 12)[0m
+      [32m  √[0m[90m FLOAT(11, 12).UNSIGNED[0m
+      [32m  √[0m[90m FLOAT({ length: 11, decimals: 12 }).UNSIGNED[0m
+      [32m  √[0m[90m FLOAT(11, 12).UNSIGNED.ZEROFILL[0m
+      [32m  √[0m[90m FLOAT(11, 12).ZEROFILL[0m
+      [32m  √[0m[90m FLOAT(11, 12).ZEROFILL.UNSIGNED[0m
+[0m        validate[0m
+        [32m  √[0m[90m should throw an error if `value` is invalid[0m
+        [32m  √[0m[90m should return `true` if `value` is a float[0m
+[0m      DECIMAL[0m
+      [32m  √[0m[90m DECIMAL[0m
+      [32m  √[0m[90m DECIMAL(10, 2)[0m
+      [32m  √[0m[90m DECIMAL({ precision: 10, scale: 2 })[0m
+      [32m  √[0m[90m DECIMAL(10)[0m
+      [32m  √[0m[90m DECIMAL({ precision: 10 })[0m
+      [32m  √[0m[90m DECIMAL.UNSIGNED[0m
+      [32m  √[0m[90m DECIMAL.UNSIGNED.ZEROFILL[0m
+      [32m  √[0m[90m DECIMAL({ precision: 10, scale: 2 }).UNSIGNED[0m
+[0m        validate[0m
+        [32m  √[0m[90m should throw an error if `value` is invalid[0m
+        [32m  √[0m[90m should return `true` if `value` is a decimal[0m
+[0m      ENUM[0m
+[0m        validate[0m
+        [32m  √[0m[90m should throw an error if `value` is invalid[0m
+        [32m  √[0m[90m should return `true` if `value` is a valid choice[0m
+[0m      BLOB[0m
+      [32m  √[0m[90m BLOB[0m
+      [32m  √[0m[90m BLOB("tiny")[0m
+      [32m  √[0m[90m BLOB("medium")[0m
+      [32m  √[0m[90m BLOB({ length: "medium" })[0m
+      [32m  √[0m[90m BLOB("long")[0m
+[0m        validate[0m
+        [32m  √[0m[90m should throw an error if `value` is invalid[0m
+        [32m  √[0m[90m should return `true` if `value` is a blob[0m
+[0m      RANGE[0m
+[0m        validate[0m
+        [32m  √[0m[90m should throw an error if `value` is invalid[0m
+        [32m  √[0m[90m should throw an error if `value` is not an array with two elements[0m
+        [32m  √[0m[90m should throw an error if `value.inclusive` is invalid[0m
+        [32m  √[0m[90m should throw an error if `value.inclusive` is not an array with two elements[0m
+        [32m  √[0m[90m should return `true` if `value` is a range[0m
+        [32m  √[0m[90m should return `true` if `value.inclusive` is a range[0m
+[0m      ARRAY[0m
+      [32m  √[0m[90m ARRAY(VARCHAR)[0m
+      [32m  √[0m[90m ARRAY(VARCHAR(100))[0m
+      [32m  √[0m[90m ARRAY(INTEGER)[0m
+      [32m  √[0m[90m ARRAY(HSTORE)[0m
+      [32m  √[0m[90m ARRAY(ARRAY(VARCHAR(255)))[0m
+      [32m  √[0m[90m ARRAY(TEXT)[0m
+      [32m  √[0m[90m ARRAY(DATE)[0m
+      [32m  √[0m[90m ARRAY(BOOLEAN)[0m
+      [32m  √[0m[90m ARRAY(DECIMAL)[0m
+      [32m  √[0m[90m ARRAY(DECIMAL(6))[0m
+      [32m  √[0m[90m ARRAY(DECIMAL(6,4))[0m
+      [32m  √[0m[90m ARRAY(DOUBLE)[0m
+      [32m  √[0m[90m ARRAY(REAL))[0m
+      [32m  √[0m[90m ARRAY(JSON)[0m
+      [32m  √[0m[90m ARRAY(JSONB)[0m
+[0m        validate[0m
+        [32m  √[0m[90m should throw an error if `value` is invalid[0m
+        [32m  √[0m[90m should return `true` if `value` is an array[0m
+[0m      GEOMETRY[0m
+      [32m  √[0m[90m GEOMETRY[0m
+      [32m  √[0m[90m GEOMETRY('POINT')[0m
+      [32m  √[0m[90m GEOMETRY('LINESTRING')[0m
+      [32m  √[0m[90m GEOMETRY('POLYGON')[0m
+      [32m  √[0m[90m GEOMETRY('POINT',4326)[0m
+
+[0m  [POSTGRES] SQL[0m
+[0m    delete[0m
+[0m      truncate #4306[0m
+      [32m  √[0m[90m Object(5)[0m
+[0m      truncate with cascade and restartIdentity[0m
+      [32m  √[0m[90m Object(6)[0m
+[0m      delete without limit[0m
+      [32m  √[0m[90m Object(3)[0m
+[0m      delete with limit[0m
+      [32m  √[0m[90m Object(3)[0m
+[0m      delete with limit and without model[0m
+      [32m  √[0m[90m Object(3)[0m
+[0m      delete when the primary key has a different field name[0m
+      [32m  √[0m[90m Object(2)[0m
+
+[0m  [POSTGRES] SQL[0m
+[0m    enum[0m
+[0m      pgEnumName[0m
+      [32m  √[0m[90m does not add schema when options: { schema: false }[0m
+      [32m  √[0m[90m properly quotes both the schema and the enum name[0m
+[0m      pgEnum[0m
+      [32m  √[0m[90m uses schema #3171[0m
+      [32m  √[0m[90m does add schema when public[0m
+[0m      pgEnumAdd[0m
+      [32m  √[0m[90m creates alter type with exists on 9.4[0m
+      [32m  √[0m[90m creates alter type without exists on 9.2 [0m
+[0m      pgListEnums[0m
+      [32m  √[0m[90m works with schema #3563[0m
+      [32m  √[0m[90m uses the default schema if no options given[0m
+
+[0m  [POSTGRES] SQL[0m
+[0m    generateJoin[0m
+    [32m  √[0m[90m include[0], User[0m
+    [32m  √[0m[90m include[0], User[0m
+    [32m  √[0m[90m include[0].include[0], Profession[0m
+    [32m  √[0m[90m include[0], User[0m
+    [32m  √[0m[90m include[0], User[0m
+    [32m  √[0m[90m include[0].include[0], User[0m
+    [32m  √[0m[90m include[0].include[0].include[0], User[0m
+    [32m  √[0m[90m include[0].include[0], User[0m
+    [32m  √[0m[90m include[0], User[0m
+    [32m  √[0m[90m include[0], User[0m
+    [32m  √[0m[90m include[0], User[0m
+    [32m  √[0m[90m include[0], User[0m
+    [32m  √[0m[90m include[0], User[0m
+    [32m  √[0m[90m include[0].include[0], User[0m
+
+[0m  [POSTGRES] SQL[0m
+[0m    getConstraintSnippet[0m
+[0m      unique[0m
+      [32m  √[0m[90m naming[0m
+      [32m  √[0m[90m should create constraint name if not passed[0m
+      [32m  √[0m[90m should work with multiple columns[0m
+[0m      check[0m
+      [32m  √[0m[90m naming[0m
+      [32m  √[0m[90m where[0m
+[0m      primary key[0m
+      [32m  √[0m[90m naming[0m
+      [32m  √[0m[90m should create constraint name if not passed[0m
+      [32m  √[0m[90m should work with multiple columns[0m
+[0m      foreign key[0m
+      [32m  √[0m[90m naming[0m
+      [32m  √[0m[90m uses onDelete, onUpdate[0m
+      [32m  √[0m[90m errors if references object is not passed[0m
+[0m      validation[0m
+      [32m  √[0m[90m throw error on invalid type[0m
+
+[0m  [POSTGRES] SQL[0m
+[0m    addIndex[0m
+    [32m  √[0m[90m naming[0m
+    [32m  √[0m[90m type and method[0m
+    [32m  √[0m[90m POJO field[0m
+    [32m  √[0m[90m function[0m
+    [32m  √[0m[90m USING[0m
+    [32m  √[0m[90m WHERE[0m
+    [32m  √[0m[90m operator[0m
+    [32m  √[0m[90m show indexes[0m
+[0m    removeIndex[0m
+    [32m  √[0m[90m naming[0m
+
+[0m  [POSTGRES] SQL[0m
+[0m    insert[0m
+    [32m  √[0m[90m with temp table for trigger[0m
+[0m    dates[0m
+    [32m  √[0m[90m formats the date correctly when inserting[0m
+    [32m  √[0m[90m formats date correctly when sub-second precision is explicitly specified[0m
+[0m    bulkCreate[0m
+    [32m  √[0m[90m bulk create with onDuplicateKeyUpdate[0m
+
+[0m  [POSTGRES] SQL[0m
+[0m    JSON[0m
+[0m      escape[0m
+      [32m  √[0m[90m plain string[0m
+      [32m  √[0m[90m plain int[0m
+      [32m  √[0m[90m boolean[0m
+      [32m  √[0m[90m NULL[0m
+      [32m  √[0m[90m nested object[0m
+      [32m  √[0m[90m array of JSON[0m
+      [32m  √[0m[90m array of JSONB[0m
+[0m      path extraction[0m
+      [32m  √[0m[90m condition object[0m
+      [32m  √[0m[90m nested condition object[0m
+      [32m  √[0m[90m multiple condition object[0m
+      [32m  √[0m[90m dot notation[0m
+      [32m  √[0m[90m column named "json"[0m
+[0m      raw json query[0m
+      [32m  √[0m[90m #>> operator[0m
+      [32m  √[0m[90m json function[0m
+      [32m  √[0m[90m nested json functions[0m
+      [32m  √[0m[90m escaped string argument[0m
+      [32m  √[0m[90m unbalnced statement[0m
+      [32m  √[0m[90m separator injection[0m
+
+[0m  [POSTGRES] SQL[0m
+[0m    offset/limit[0m
+    [32m  √[0m[90m tableRef[0m
+    [32m  √[0m[90m Object(2)[0m
+    [32m  √[0m[90m Object(3)[0m
+    [32m  √[0m[90m Object(2)[0m
+    [32m  √[0m[90m Object(3)[0m
+
+[0m  [POSTGRES] SQL[0m
+[0m    order[0m
+    [32m  √[0m[90m Subtask[0m
+    [32m  √[0m[90m Subtask[0m
+[0m      Invalid[0m
+      [32m  √[0m[90m Error on invalid association[0m
+      [32m  √[0m[90m Error on invalid structure[0m
+      [32m  √[0m[90m Error when the order is a string[0m
+      [32m  √[0m[90m Error when the order contains a `{raw: "..."}` object[0m
+      [32m  √[0m[90m Error when the order contains a `{raw: "..."}` object wrapped in an array[0m
+
+[0m  [POSTGRES] SQL[0m
+[0m    removeColumn[0m
+    [32m  √[0m[90m schema[0m
+
+[0m  [POSTGRES] SQL[0m
+[0m    removeConstraint[0m
+    [32m  √[0m[90m naming[0m
+
+[0m  [POSTGRES] SQL[0m
+[0m    select[0m
+    [32m  √[0m[90m Object(5)[0m
+    [32m  √[0m[90m Object(4)[0m
+    [32m  √[0m[90m user[0m
+    [32m  √[0m[90m user[0m
+    [32m  √[0m[90m user[0m
+    [32m  √[0m[90m user[0m
+    [32m  √[0m[90m user[0m
+    [32m  √[0m[90m user[0m
+[0m      attribute escaping[0m
+      [32m  √[0m[90m plain attributes (1)[0m
+      [32m  √[0m[90m plain attributes (2)[0m
+      [32m  √[0m[90m plain attributes (3)[0m
+      [32m  √[0m[90m plain attributes (4)[0m
+      [32m  √[0m[90m aliased attributes (1)[0m
+      [32m  √[0m[90m aliased attributes (2)[0m
+      [32m  √[0m[90m aliased attributes (3)[0m
+      [32m  √[0m[90m attributes from includes[0m
+[0m    queryIdentifiersFalse[0m
+    [32m  √[0m[90m *[0m
+    [32m  √[0m[90m with attributes[0m
+    [32m  √[0m[90m include (left outer join)[0m
+    [32m  √[0m[90m nested include (left outer join)[0m
+
+[0m  [POSTGRES] SQL[0m
+[0m    showConstraint[0m
+    [32m  √[0m[90m naming[0m
+    [32m  √[0m[90m should add constraint_name to where clause if passed in case of mysql[0m
+
+[0m  [POSTGRES] SQL[0m
+[0m    update[0m
+    [32m  √[0m[90m with temp table for trigger[0m
+    [32m  √[0m[90m Works with limit[0m
+
+[0m  [POSTGRES] SQL[0m
+[0m    whereQuery[0m
+    [32m  √[0m[90m Object(0)[0m
+    [32m  √[0m[90m [0][0m
+    [32m  √[0m[90m Object(1)[0m
+    [32m  √[0m[90m Object(1), Object(1)[0m
+    [32m  √[0m[90m { id: 1 }, { prefix: current.literal(sql.quoteTable.call(current.dialect.QueryGenerator, {schema: 'yolo', tableName: 'User'})) }[0m
+    [32m  √[0m[90m a project[0m
+    [32m  √[0m[90m a project[0m
+    [32m  √[0m[90m here is a null char:  [0m
+[0m    whereItemQuery[0m
+    [32m  √[0m[90m undefined: lol=1[0m
+    [32m  √[0m[90m deleted: null[0m
+[0m      $in[0m
+      [32m  √[0m[90m equipment: Object(1)[0m
+      [32m  √[0m[90m equipment: Object(1)[0m
+      [32m  √[0m[90m muscles: Object(1)[0m
+      [32m  √[0m[90m equipment: Object(1)[0m
+[0m      Buffer[0m
+      [32m  √[0m[90m field: Buffer(9)[0m
+[0m      $not[0m
+      [32m  √[0m[90m deleted: Object(1)[0m
+      [32m  √[0m[90m deleted: Object(1)[0m
+      [32m  √[0m[90m muscles: Object(1)[0m
+[0m      $notIn[0m
+      [32m  √[0m[90m equipment: Object(1)[0m
+      [32m  √[0m[90m equipment: Object(1)[0m
+      [32m  √[0m[90m equipment: Object(1)[0m
+[0m      $ne[0m
+      [32m  √[0m[90m email: Object(1)[0m
+[0m      $and/$or/$not[0m
+[0m        $or[0m
+        [32m  √[0m[90m email: Object(1)[0m
+        [32m  √[0m[90m rank: Object(1)[0m
+        [32m  √[0m[90m $or: [2][0m
+        [32m  √[0m[90m $or: Mick Hansen[0m
+        [32m  √[0m[90m $or: Object(2)[0m
+        [32m  √[0m[90m $or: [2][0m
+        [32m  √[0m[90m sequelize.or({group_id: 1}, {user_id: 2})[0m
+        [32m  √[0m[90m sequelize.or({group_id: 1}, {user_id: 2, role: 'admin'})[0m
+        [32m  √[0m[90m $or: [0][0m
+        [32m  √[0m[90m $or: Object(0)[0m
+        [32m  √[0m[90m sequelize.or()[0m
+[0m        $and[0m
+        [32m  √[0m[90m $and: Object(2)[0m
+        [32m  √[0m[90m $and: [2][0m
+        [32m  √[0m[90m rank: Object(1)[0m
+        [32m  √[0m[90m name: Object(1)[0m
+        [32m  √[0m[90m sequelize.and({shared: 1, sequelize.or({group_id: 1}, {user_id: 2}))[0m
+[0m        $not[0m
+        [32m  √[0m[90m $not: Object(2)[0m
+        [32m  √[0m[90m $not: [0][0m
+        [32m  √[0m[90m $not: Object(0)[0m
+[0m      $col[0m
+      [32m  √[0m[90m userId: Object(1)[0m
+      [32m  √[0m[90m userId: Object(1)[0m
+      [32m  √[0m[90m userId: Object(1)[0m
+      [32m  √[0m[90m $or: [2][0m
+      [32m  √[0m[90m $organization.id$: Object(1)[0m
+      [32m  √[0m[90m $offer.organization.id$: Object(1)[0m
+[0m      $gt[0m
+      [32m  √[0m[90m rank: Object(1)[0m
+      [32m  √[0m[90m created_at: Object(1)[0m
+[0m      $raw[0m
+      [32m  √[0m[90m should fail on $raw[0m
+[0m      $like[0m
+      [32m  √[0m[90m username: Object(1)[0m
+[0m      $between[0m
+      [32m  √[0m[90m date: Object(1)[0m
+      [32m  √[0m[90m date: Object(2)[0m
+[0m      $notBetween[0m
+      [32m  √[0m[90m date: Object(1)[0m
+[0m      ARRAY[0m
+[0m        $contains[0m
+        [32m  √[0m[90m muscles: Object(1)[0m
+        [32m  √[0m[90m muscles: Object(1)[0m
+        [32m  √[0m[90m muscles: Object(1), Object(1)[0m
+[0m        $overlap[0m
+        [32m  √[0m[90m muscles: Object(1)[0m
+        [32m  √[0m[90m muscles: Object(1)[0m
+        [32m  √[0m[90m muscles: Object(1)[0m
+[0m        $any[0m
+        [32m  √[0m[90m userId: Object(1)[0m
+        [32m  √[0m[90m userId: Object(1), Object(1)[0m
+[0m          $values[0m
+          [32m  √[0m[90m userId: Object(1)[0m
+          [32m  √[0m[90m userId: Object(1), Object(1)[0m
+[0m        $all[0m
+        [32m  √[0m[90m userId: Object(1)[0m
+        [32m  √[0m[90m userId: Object(1), Object(1)[0m
+[0m          $values[0m
+          [32m  √[0m[90m userId: Object(1)[0m
+          [32m  √[0m[90m userId: Object(1), Object(1)[0m
+[0m        $like[0m
+        [32m  √[0m[90m userId: Object(1)[0m
+        [32m  √[0m[90m userId: Object(1)[0m
+        [32m  √[0m[90m userId: Object(1)[0m
+        [32m  √[0m[90m userId: Object(1)[0m
+        [32m  √[0m[90m userId: Object(1)[0m
+        [32m  √[0m[90m userId: Object(1)[0m
+        [32m  √[0m[90m userId: Object(1)[0m
+        [32m  √[0m[90m userId: Object(1)[0m
+[0m      RANGE[0m
+      [32m  √[0m[90m range: Object(1), Object(2)[0m
+      [32m  √[0m[90m range: Object(1), Object(2)[0m
+      [32m  √[0m[90m range: Object(1), Object(2)[0m
+      [32m  √[0m[90m unboundedRange: Object(1), Object(2)[0m
+      [32m  √[0m[90m unboundedRange: Object(1), Object(2)[0m
+      [32m  √[0m[90m reservedSeats: Object(1), Object(2)[0m
+      [32m  √[0m[90m reservedSeats: Object(1), Object(2)[0m
+      [32m  √[0m[90m reservedSeats: Object(1), Object(2)[0m
+      [32m  √[0m[90m reservedSeats: Object(1), Object(2)[0m
+      [32m  √[0m[90m reservedSeats: Object(1), Object(2)[0m
+      [32m  √[0m[90m reservedSeats: Object(1), Object(2)[0m
+[0m      JSON[0m
+      [32m  √[0m[90m sequelize.json("profile.id"), sequelize.cast(2, 'text')")[0m
+      [32m  √[0m[90m sequelize.json({profile: {id: "12346-78912", name: "test"}})[0m
+      [32m  √[0m[90m data: Object(1), Object(2)[0m
+      [32m  √[0m[90m data: Object(1), Object(1)[0m
+      [32m  √[0m[90m data: Object(1), Object(1)[0m
+      [32m  √[0m[90m data: Object(1), Object(2)[0m
+      [32m  √[0m[90m data: Object(2), Object(2)[0m
+      [32m  √[0m[90m data: Product, Object(1)[0m
+      [32m  √[0m[90m data.nested.attribute: value, model[0m
+      [32m  √[0m[90m data.nested.attribute: 4, model[0m
+      [32m  √[0m[90m data.nested.attribute: Object(1), model[0m
+      [32m  √[0m[90m data: Object(1), Object(1)[0m
+      [32m  √[0m[90m data: Object(1), Object(1)[0m
+      [32m  √[0m[90m data: Object(1), Object(1)[0m
+      [32m  √[0m[90m data: Object(1), Object(1)[0m
+      [32m  √[0m[90m metaData.nested.attribute: value, model[0m
+[0m      JSONB[0m
+      [32m  √[0m[90m data: Object(1), Object(1)[0m
+[0m      $regexp[0m
+      [32m  √[0m[90m username: Object(1)[0m
+[0m      $regexp[0m
+      [32m  √[0m[90m newline: Object(1)[0m
+[0m      $notRegexp[0m
+      [32m  √[0m[90m username: Object(1)[0m
+[0m      $notRegexp[0m
+      [32m  √[0m[90m newline: Object(1)[0m
+[0m      $iRegexp[0m
+      [32m  √[0m[90m username: Object(1)[0m
+[0m      $iRegexp[0m
+      [32m  √[0m[90m newline: Object(1)[0m
+[0m      $notIRegexp[0m
+      [32m  √[0m[90m username: Object(1)[0m
+[0m      $notIRegexp[0m
+      [32m  √[0m[90m newline: Object(1)[0m
+[0m      fn[0m
+      [32m  √[0m[90m {name: this.sequelize.fn('LOWER', 'DERP')}[0m
+[0m    getWhereConditions[0m
+    [32m  √[0m[90m Where(3)[0m
+    [32m  √[0m[90m Where(3)[0m
+    [32m  √[0m[90m Where(3)[0m
+
+[0m  Transaction[0m
+  [32m  √[0m[90m should run auto commit query only when needed[0m
+
+[0m  [POSTGRES] Utils[0m
+[0m    merge[0m
+    [32m  √[0m[90m does not clone sequelize models[0m
+[0m    toDefaultValue[0m
+    [32m  √[0m[90m return plain data types[0m
+    [32m  √[0m[90m return uuid v1[0m
+    [32m  √[0m[90m return uuid v4[0m
+    [32m  √[0m[90m return now[0m
+    [32m  √[0m[90m return plain string[0m
+    [32m  √[0m[90m return plain object[0m
+[0m    defaults[0m
+    [32m  √[0m[90m defaults normal object[0m
+    [32m  √[0m[90m defaults symbol keys[0m
+[0m    mapFinderOptions[0m
+    [32m  √[0m[90m virtual attribute dependencies[0m
+    [32m  √[0m[90m multiple calls[0m
+[0m    mapOptionFieldNames[0m
+    [32m  √[0m[90m plain where[0m
+    [32m  √[0m[90m $or where[0m
+    [32m  √[0m[90m $or[] where[0m
+    [32m  √[0m[90m $and where[0m
+[0m    stack[0m
+    [32m  √[0m[90m stack trace starts after call to Util.stack()[0m
+[0m    Sequelize.cast[0m
+    [32m  √[0m[90m accepts condition object (auto casting)[0m
+[0m    Logger[0m
+Mon, 15 Dec 2025 15:47:06 GMT sequelize deprecated test deprecation at test\unit\utils.test.js:277:14
+    [32m  √[0m[90m deprecate[0m
+    [32m  √[0m[90m debug[0m
+(sequelize) Warning: test warning
+    [32m  √[0m[90m warn[0m
+    [32m  √[0m[90m debugContext[0m
+
+[0m  injectReplacements (named replacements)[0m
+  [32m  √[0m[90m parses named replacements[0m
+  [32m  √[0m[90m throws if a named replacement is not provided as an own property[0m
+  [32m  √[0m[90m parses named replacements followed by cast syntax[0m
+  [32m  √[0m[90m parses single letter named replacements[0m
+  [32m  √[0m[90m does not consider the token to be a replacement if it does not follow '(', ',', '=' or whitespace[0m
+  [32m  √[0m[90m does not consider the token to be a replacement if it is part of a $ quoted string[0m
+  [32m  √[0m[90m does not consider the token to be a replacement if it is part of a nested $ quoted string[0m
+  [32m  √[0m[90m does consider the token to be a replacement if it is in between two identifiers that look like $ quoted strings[0m
+  [32m  √[0m[90m does not consider the token to be a replacement if it is part of a string with a backslash escaped quote[0m
+  [32m  √[0m[90m considers the token to be a replacement if it is outside a string ending with an escaped backslash[0m
+  [32m  √[0m[90m does not consider the token to be a replacement if it is part of a string with an escaped backslash followed by a backslash escaped quote[0m
+  [32m  √[0m[90m does not consider the token to be a replacement if it is in a single line comment[0m
+  [32m  √[0m[90m does not consider the token to be a replacement if it is in string but a previous comment included a string delimiter[0m
+  [32m  √[0m[90m does not consider the token to be a replacement if it is in a single line comment[0m
+  [32m  √[0m[90m does not interpret ::x as a replacement, as it is a cast[0m
+
+[0m  injectReplacements (positional replacements)[0m
+  [32m  √[0m[90m parses positional replacements[0m
+  [32m  √[0m[90m parses positional replacements followed by cast syntax[0m
+  [32m  √[0m[90m does not consider the token to be a replacement if it does not follow '(', ',', '=' or whitespace[0m
+  [32m  √[0m[90m does not consider the token to be a replacement if it is part of a $ quoted string[0m
+  [32m  √[0m[90m does not consider the token to be a replacement if it is part of a nested $ quoted string[0m
+  [32m  √[0m[90m does consider the token to be a replacement if it is in between two identifiers that look like $ quoted strings[0m
+  [32m  √[0m[90m does not consider the token to be a replacement if it is part of a string with a backslash escaped quote[0m
+  [32m  √[0m[90m considers the token to be a replacement if it is outside a string ending with an escaped backslash[0m
+  [32m  √[0m[90m does not consider the token to be a replacement if it is part of a string with an escaped backslash followed by a backslash escaped quote[0m
+  [32m  √[0m[90m does not consider the token to be a replacement if it is in a single line comment[0m
+  [32m  √[0m[90m does not consider the token to be a replacement if it is in string but a previous comment included a string delimiter[0m
+  [32m  √[0m[90m does not consider the token to be a replacement if it is in a single line comment[0m
+  [32m  √[0m[90m does not parse ?& and ?| operators as replacements (#14358)[0m
+  [32m  √[0m[90m formats where clause correctly when the value is falsy[0m
+  [32m  √[0m[90m formats arrays as an expression instead of an ARRAY data type[0m
+
+
+[92m [0m[32m 1160 passing[0m[90m (742ms)[0m
+
