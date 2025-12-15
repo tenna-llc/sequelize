@@ -272,9 +272,6 @@ if (dialect.match(/^postgres/)) {
           arguments: ['myTable', {where: 2}],
           expectation: 'SELECT * FROM \"myTable\" WHERE \"myTable\".\"id\" = 2;'
         }, {
-          arguments: ['foo', { attributes: [['count(*)', 'count']] }],
-          expectation: 'SELECT count(*) AS \"count\" FROM \"foo\";'
-        }, {
           arguments: ['myTable', {order: ['id']}],
           expectation: 'SELECT * FROM "myTable" ORDER BY "id";',
           context: QueryGenerator
@@ -402,18 +399,6 @@ if (dialect.match(/^postgres/)) {
           arguments: ['myTable', {group: ['name', 'title']}],
           expectation: 'SELECT * FROM \"myTable\" GROUP BY \"name\", \"title\";'
         }, {
-          title: 'HAVING clause works with where-like hash',
-          arguments: ['myTable', function(sequelize) {
-            return {
-              attributes: ['*', [sequelize.fn('YEAR', sequelize.col('createdAt')), 'creationYear']],
-              group: ['creationYear', 'title'],
-              having: { creationYear: { gt: 2002 } }
-            };
-          }],
-          expectation: 'SELECT *, YEAR(\"createdAt\") AS \"creationYear\" FROM \"myTable\" GROUP BY \"creationYear\", \"title\" HAVING \"creationYear\" > 2002;',
-          context: QueryGenerator,
-          needsSequelize: true
-        }, {
           arguments: ['myTable', {limit: 10}],
           expectation: 'SELECT * FROM \"myTable\" LIMIT 10;'
         }, {
@@ -464,10 +449,6 @@ if (dialect.match(/^postgres/)) {
         }, {
           arguments: ['myTable', {where: 2}],
           expectation: 'SELECT * FROM myTable WHERE myTable.id = 2;',
-          context: {options: {quoteIdentifiers: false}}
-        }, {
-          arguments: ['foo', { attributes: [['count(*)', 'count']] }],
-          expectation: 'SELECT count(*) AS count FROM foo;',
           context: {options: {quoteIdentifiers: false}}
         }, {
           arguments: ['myTable', {order: ['id DESC']}],

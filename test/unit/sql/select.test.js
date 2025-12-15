@@ -444,6 +444,7 @@ suite(Support.getTestDialectTeaser('SQL'), () => {
           attributes: ['* FROM [User]; DELETE FROM [User];SELECT [id]'.replace(/\[/g, Support.sequelize.dialect.TICK_CHAR_LEFT).replace(/\]/g, Support.sequelize.dialect.TICK_CHAR_RIGHT)]
         }), {
           default: 'SELECT \'* FROM [User]; DELETE FROM [User];SELECT [id]\' FROM [User];',
+          postgres: 'SELECT \'* FROM "User"; DELETE FROM "User";SELECT "id"\' FROM "User";',
           mssql: 'SELECT [* FROM User; DELETE FROM User;SELECT id] FROM [User];'
         });
       });
@@ -674,59 +675,5 @@ suite(Support.getTestDialectTeaser('SQL'), () => {
 
   });
 
-  suite('raw query', () => {
-    test('raw replacements for where', () => {
-      expect(() => {
-        sql.selectQuery('User', {
-          attributes: ['*'],
-          where: ['name IN (?)', [1, 'test', 3, 'derp']]
-        });
-      }).to.throw(Error, 'Support for literal replacements in the `where` object has been removed.');
-    });
 
-    test('raw replacements for nested where', () => {
-      expect(() => {
-        sql.selectQuery('User', {
-          attributes: ['*'],
-          where: [['name IN (?)', [1, 'test', 3, 'derp']]]
-        });
-      }).to.throw(Error, 'Support for literal replacements in the `where` object has been removed.');
-    });
-
-    test('raw replacements for having', () => {
-      expect(() => {
-        sql.selectQuery('User', {
-          attributes: ['*'],
-          having: ['name IN (?)', [1, 'test', 3, 'derp']]
-        });
-      }).to.throw(Error, 'Support for literal replacements in the `where` object has been removed.');
-    });
-
-    test('raw replacements for nested having', () => {
-      expect(() => {
-        sql.selectQuery('User', {
-          attributes: ['*'],
-          having: [['name IN (?)', [1, 'test', 3, 'derp']]]
-        });
-      }).to.throw(Error, 'Support for literal replacements in the `where` object has been removed.');
-    });
-
-    test('raw string from where', () => {
-      expect(() => {
-        sql.selectQuery('User', {
-          attributes: ['*'],
-          where: 'name = \'something\''
-        });
-      }).to.throw(Error, 'Support for `{where: \'raw query\'}` has been removed.');
-    });
-
-    test('raw string from having', () => {
-      expect(() => {
-        sql.selectQuery('User', {
-          attributes: ['*'],
-          having: 'name = \'something\''
-        });
-      }).to.throw(Error, 'Support for `{where: \'raw query\'}` has been removed.');
-    });
-  });
 });

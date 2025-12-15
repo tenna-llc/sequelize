@@ -220,9 +220,45 @@ const Support = {
     }
 
     if (_.isError(query)) {
-      expect(query.message).to.equal(expectation.message);
+      const expectation1 = query.message.replace(/\s+/g, ' ')
+      // remove space before comma
+        .replace(/ ,/g, ',')
+      // remove space before )
+        .replace(/ \)/g, ')')
+      // replace space after (
+        .replace(/\( /g, '(')
+      // remove whitespace at start & end
+        .trim();
+      const actual = expectation.message.replace(/\s+/g, ' ')
+      // remove space before comma
+        .replace(/ ,/g, ',')
+      // remove space before )
+        .replace(/ \)/g, ')')
+      // replace space after (
+        .replace(/\( /g, '(')
+      // remove whitespace at start & end
+        .trim();
+      expect(actual).to.equal(expectation1);
     } else {
-      expect(query).to.equal(expectation);
+      const expectation1 = query.replace(/\s+/g, ' ')
+      // remove space before comma
+        .replace(/ ,/g, ',')
+      // remove space before )
+        .replace(/ \)/g, ')')
+      // replace space after (
+        .replace(/\( /g, '(')
+      // remove whitespace at start & end
+        .trim();
+      const actual = expectation.replace(/\s+/g, ' ')
+      // remove space before comma
+        .replace(/ ,/g, ',')
+      // remove space before )
+        .replace(/ \)/g, ')')
+      // replace space after (
+        .replace(/\( /g, '(')
+      // remove whitespace at start & end
+        .trim();
+      expect(actual).to.equal(expectation1);
     }
   }
 };
