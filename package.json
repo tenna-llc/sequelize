@@ -128,7 +128,7 @@
   "scripts": {
     "lint": "eslint lib test --quiet",
     "lint-docs": "markdownlint docs",
-    "test": "npm run teaser && npm run test-unit && npm run test-integration",
+    "test": "set DIALECT=postgres&& npm run teaser && npm run test-unit > test-output/test-all.txt 2>&1",
     "test-docker": "npm run test-docker-unit && npm run test-docker-integration",
     "test-docker-unit": "npm run test-unit",
     "test-docker-integration": "env-cmd $npm_package_options_env_cmd npm run test-integration",

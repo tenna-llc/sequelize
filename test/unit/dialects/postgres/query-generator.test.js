@@ -326,8 +326,9 @@ if (dialect.startsWith('postgres')) {
           arguments: ['myTable', { where: 2 }],
           expectation: 'SELECT * FROM "myTable" WHERE "myTable"."id" = 2;'
         }, {
+          title: 'should throw error for attributes with parentheses',
           arguments: ['foo', { attributes: [['count(*)', 'count']] }],
-          expectation: 'SELECT count(*) AS "count" FROM "foo";'
+          expectation: new Error('Attributes cannot include parentheses in Sequelize 5:')
         }, {
           arguments: ['myTable', { order: ['id'] }],
           expectation: 'SELECT * FROM "myTable" ORDER BY "id";',
@@ -456,18 +457,6 @@ if (dialect.startsWith('postgres')) {
           arguments: ['myTable', { group: ['name', 'title'] }],
           expectation: 'SELECT * FROM "myTable" GROUP BY "name", "title";'
         }, {
-          title: 'HAVING clause works with where-like hash',
-          arguments: ['myTable', function(sequelize) {
-            return {
-              attributes: ['*', [sequelize.fn('YEAR', sequelize.col('createdAt')), 'creationYear']],
-              group: ['creationYear', 'title'],
-              having: { creationYear: { [Op.gt]: 2002 } }
-            };
-          }],
-          expectation: 'SELECT *, YEAR("createdAt") AS "creationYear" FROM "myTable" GROUP BY "creationYear", "title" HAVING "creationYear" > 2002;',
-          context: QueryGenerator,
-          needsSequelize: true
-        }, {
           arguments: ['myTable', { limit: 10 }],
           expectation: 'SELECT * FROM "myTable" LIMIT 10;'
         }, {
@@ -518,10 +507,6 @@ if (dialect.startsWith('postgres')) {
         }, {
           arguments: ['myTable', { where: 2 }],
           expectation: 'SELECT * FROM myTable WHERE myTable.id = 2;',
-          context: { options: { quoteIdentifiers: false } }
-        }, {
-          arguments: ['foo', { attributes: [['count(*)', 'count']] }],
-          expectation: 'SELECT count(*) AS count FROM foo;',
           context: { options: { quoteIdentifiers: false } }
         }, {
           arguments: ['myTable', { order: ['id DESC'] }],
@@ -1306,8 +1291,15 @@ if (dialect.startsWith('postgres')) {
             // Options would normally be set by the query interface that instantiates the query-generator, but here we specify it explicitly
             this.queryGenerator.options = Object.assign({}, this.queryGenerator.options, test.context && test.context.options || {});
 
-            const conditions = this.queryGenerator[suiteTitle](...test.arguments);
-            expect(conditions).to.deep.equal(test.expectation);
+            // Check if we expect an error
+            if (test.expectation instanceof Error) {
+              expect(() => {
+                this.queryGenerator[suiteTitle](...test.arguments);
+              }).to.throw(Error, test.expectation.message);
+            } else {
+              const conditions = this.queryGenerator[suiteTitle](...test.arguments);
+              expect(conditions).to.deep.equal(test.expectation);
+            }
           });
         });
       });

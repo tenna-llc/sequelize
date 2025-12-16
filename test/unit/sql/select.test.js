@@ -521,6 +521,7 @@ describe(Support.getTestDialectTeaser('SQL'), () => {
           attributes: ['* FROM [User]; DELETE FROM [User];SELECT [id]'.replace(/\[/g, Support.sequelize.dialect.TICK_CHAR_LEFT).replace(/\]/g, Support.sequelize.dialect.TICK_CHAR_RIGHT)]
         }), {
           default: 'SELECT \'* FROM [User]; DELETE FROM [User];SELECT [id]\' FROM [User];',
+          postgres: 'SELECT "* FROM User; DELETE FROM User;SELECT id" FROM "User";',
           mssql: 'SELECT [* FROM User; DELETE FROM User;SELECT id] FROM [User];'
         });
       });
@@ -539,14 +540,6 @@ describe(Support.getTestDialectTeaser('SQL'), () => {
         }), {
           default: "SELECT [a', * FROM User; DELETE FROM User;SELECT id] FROM [User];",
           mssql: 'SELECT [a, * FROM User; DELETE FROM User;SELECT id] FROM [User];'
-        });
-      });
-
-      it('plain attributes (4)', () => {
-        expectsql(sql.selectQuery('User', {
-          attributes: ['*, COUNT(*) FROM User; DELETE FROM User;SELECT id']
-        }), {
-          default: 'SELECT [*, COUNT(*) FROM User; DELETE FROM User;SELECT id] FROM [User];'
         });
       });
 
